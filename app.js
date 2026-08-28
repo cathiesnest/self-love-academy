@@ -4,7 +4,7 @@
    Powered by CathiesNest Digital
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   /* =======================================================
      LINKS
@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://alison.com/psychometric-test/wellbeing?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117";
 
   const SELF_LOVE_ACADEMY_URL =
-    window.location.href.split("#")[0];
+    window.location.origin +
+    window.location.pathname;
 
 
   /* =======================================================
@@ -244,75 +245,79 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks =
     document.getElementById("navLinks");
 
-
-  /* =======================================================
-     THEME SWITCHER
-     Sage Green / Mocha Neutral
-     ======================================================= */
-
   const themeOptions =
     document.querySelectorAll(".theme-option");
 
-  function applyTheme(theme) {
 
-    if (theme === "mocha") {
+  /* =======================================================
+     GOOGLE ANALYTICS
+     ======================================================= */
 
-      document.documentElement.setAttribute(
-        "data-theme",
-        "mocha"
-      );
+  function trackEvent(eventName, parameters = {}) {
 
-    } else {
+    if (typeof window.gtag === "function") {
 
-      document.documentElement.setAttribute(
-        "data-theme",
-        "sage"
+      window.gtag(
+        "event",
+        eventName,
+        parameters
       );
 
     }
 
+  }
 
-    themeOptions.forEach(
-      (option) => {
 
-        const isActive =
-          option.dataset.theme === theme;
+  /* =======================================================
+     THEME SWITCHER
+     Sage Green / Mocha
+     ======================================================= */
 
-        option.classList.toggle(
-          "active",
-          isActive
-        );
+  function applyTheme(theme) {
 
-        option.setAttribute(
-          "aria-pressed",
-          String(isActive)
-        );
+    const selectedTheme =
+      theme === "mocha"
+        ? "mocha"
+        : "sage";
 
-      }
-    );
+    document.documentElement.dataset.theme =
+      selectedTheme;
+
+
+    themeOptions.forEach(function (option) {
+
+      const optionTheme =
+        option.dataset.theme;
+
+      const isActive =
+        optionTheme === selectedTheme;
+
+      option.classList.toggle(
+        "active",
+        isActive
+      );
+
+      option.setAttribute(
+        "aria-pressed",
+        String(isActive)
+      );
+
+    });
 
 
     try {
 
       localStorage.setItem(
         "selfLoveAcademyTheme",
-        theme
+        selectedTheme
       );
 
     } catch (error) {
 
-      /* Local storage may be unavailable.
-         Theme will still work for this visit. */
+      /* Theme still works even if
+         localStorage is unavailable. */
 
     }
-
-
-    trackEvent(
-      "theme_changed",
-      {
-        theme: theme
-      }
-    );
 
   }
 
@@ -321,14 +326,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let savedTheme = "sage";
 
-
     try {
 
       const storedTheme =
         localStorage.getItem(
           "selfLoveAcademyTheme"
         );
-
 
       if (
         storedTheme === "sage" ||
@@ -346,65 +349,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    applyTheme(
-      savedTheme
-    );
+    applyTheme(savedTheme);
 
   }
 
 
-  if (themeOptions.length) {
+  themeOptions.forEach(function (option) {
 
-    themeOptions.forEach(
-      (option) => {
+    option.addEventListener(
+      "click",
+      function () {
 
-        option.addEventListener(
-          "click",
-          () => {
+        const selectedTheme =
+          option.dataset.theme;
 
-            const selectedTheme =
-              option.dataset.theme;
+        if (
+          selectedTheme === "sage" ||
+          selectedTheme === "mocha"
+        ) {
 
-            if (
-              selectedTheme === "sage" ||
-              selectedTheme === "mocha"
-            ) {
+          applyTheme(
+            selectedTheme
+          );
 
-              applyTheme(
-                selectedTheme
-              );
-
+          trackEvent(
+            "theme_changed",
+            {
+              theme: selectedTheme
             }
+          );
 
-          }
-        );
+        }
 
       }
     );
 
-  }
-
-
-  /* =======================================================
-     GOOGLE ANALYTICS
-     ======================================================= */
-
-  function trackEvent(eventName, parameters = {}) {
-
-    if (
-      typeof window.gtag === "function"
-    ) {
-
-      window.gtag(
-        "event",
-        eventName,
-        parameters
-      );
-
-    }
-
-  }
+  });
 
 
   /* =======================================================
@@ -420,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startButton.addEventListener(
       "click",
-      () => {
+      function () {
 
         trackEvent(
           "self_reflection_started"
@@ -441,11 +421,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const item =
       questions[currentQuestion];
 
-
     if (!item) {
       return;
     }
 
+
+    /* Question counter */
 
     if (questionCounter) {
 
@@ -454,6 +435,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    /* Progress percentage */
 
     if (progressPercent) {
 
@@ -470,6 +453,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* Progress bar */
+
     if (progressBar) {
 
       progressBar.style.width =
@@ -480,6 +465,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* Question text */
+
     if (questionText) {
 
       questionText.textContent =
@@ -488,39 +475,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* Answer choices */
+
     if (answerOptions) {
 
       answerOptions.innerHTML = "";
 
 
       item.options.forEach(
-        (option, index) => {
+        function (optionText, index) {
 
           const button =
             document.createElement("button");
 
-
-          button.type =
-            "button";
-
+          button.type = "button";
 
           button.className =
             "answer-option";
 
+          button.setAttribute(
+            "aria-label",
+            optionText
+          );
 
-          button.dataset.answer =
-            option;
+
+          const dot =
+            document.createElement("span");
+
+          dot.className =
+            "option-dot";
 
 
-          button.innerHTML = `
-            <span class="option-dot"></span>
-            <span>${option}</span>
-          `;
+          const text =
+            document.createElement("span");
+
+          text.textContent =
+            optionText;
+
+
+          button.appendChild(dot);
+
+          button.appendChild(text);
 
 
           button.addEventListener(
             "click",
-            () => {
+            function () {
 
               selectAnswer(
                 index,
@@ -541,6 +541,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* Reset reflection */
+
     if (tinyReflection) {
 
       tinyReflection.textContent =
@@ -553,10 +555,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* Reset next button */
+
     if (nextQuestion) {
 
       nextQuestion.disabled =
-        true;
+        answers[currentQuestion] === undefined;
 
       nextQuestion.textContent =
         currentQuestion ===
@@ -590,10 +594,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     buttons.forEach(
-      (button) => {
+      function (button) {
 
         button.classList.remove(
           "selected"
+        );
+
+        button.setAttribute(
+          "aria-pressed",
+          "false"
         );
 
       }
@@ -602,6 +611,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     selectedButton.classList.add(
       "selected"
+    );
+
+    selectedButton.setAttribute(
+      "aria-pressed",
+      "true"
     );
 
 
@@ -652,13 +666,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextQuestion.addEventListener(
       "click",
-      () => {
+      function () {
 
         if (
           answers[currentQuestion] ===
           undefined
         ) {
+
           return;
+
         }
 
 
@@ -703,7 +719,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "self_reflection_completed"
     );
 
-
     generatePersonalReflection();
 
     generateSmallStep();
@@ -740,11 +755,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const selectedAnswers =
       answers.map(
-        (answer, index) => {
+        function (answer, index) {
 
           if (
             answer === undefined
           ) {
+
             return "";
 
           }
@@ -763,36 +779,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const boundary =
       selectedAnswers[0] || "";
 
-
     const selfTalk =
       selectedAnswers[1] || "";
-
 
     const rest =
       selectedAnswers[2] || "";
 
-
     const comparison =
       selectedAnswers[3] || "";
-
 
     const nextChapter =
       selectedAnswers[4] || "";
 
 
     if (
-      boundary.includes(
-        "disappointed"
-      ) ||
-      boundary.includes(
-        "selfish"
-      ) ||
-      boundary.includes(
-        "conflict"
-      ) ||
-      boundary.includes(
-        "needed"
-      )
+      boundary.includes("disappointed") ||
+      boundary.includes("selfish") ||
+      boundary.includes("conflict") ||
+      boundary.includes("needed")
     ) {
 
       message +=
@@ -802,12 +806,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      selfTalk.includes(
-        "harder on myself"
-      ) ||
-      selfTalk.includes(
-        "mistake"
-      )
+      selfTalk.includes("harder on myself") ||
+      selfTalk.includes("mistake")
     ) {
 
       message +=
@@ -817,15 +817,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      rest.includes(
-        "guilty"
-      ) ||
-      rest.includes(
-        "task"
-      ) ||
-      rest.includes(
-        "don't really know"
-      )
+      rest.includes("guilty") ||
+      rest.includes("task") ||
+      rest.includes("don't really know")
     ) {
 
       message +=
@@ -835,12 +829,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      comparison.includes(
-        "timeline"
-      ) ||
-      comparison.includes(
-        "far I've come"
-      )
+      comparison.includes("timeline") ||
+      comparison.includes("far I've come")
     ) {
 
       message +=
@@ -850,15 +840,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      nextChapter.includes(
-        "myself"
-      ) ||
-      nextChapter.includes(
-        "boundary"
-      ) ||
-      nextChapter.includes(
-        "happy"
-      )
+      nextChapter.includes("myself") ||
+      nextChapter.includes("boundary") ||
+      nextChapter.includes("happy")
     ) {
 
       message +=
@@ -907,12 +891,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
 
+    const stepIndex =
+      typeof selectedAnswer === "number"
+        ? selectedAnswer
+        : 0;
+
+
     smallStep.textContent =
-      steps[
-        typeof selectedAnswer === "number"
-          ? selectedAnswer
-          : 0
-      ];
+      steps[stepIndex];
 
   }
 
@@ -976,7 +962,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     newInspiration.addEventListener(
       "click",
-      () => {
+      function () {
 
         generateInspiration();
 
@@ -994,10 +980,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wellbeingButton.addEventListener(
       "click",
-      () => {
+      function () {
 
         trackEvent(
           "wellbeing_checkin_click"
+        );
+
+        window.open(
+          ALISON_WELLBEING_URL,
+          "_blank",
+          "noopener,noreferrer"
         );
 
       }
@@ -1014,10 +1006,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tabingGuhitButton.addEventListener(
       "click",
-      () => {
+      function () {
 
         trackEvent(
           "tabing_guhit_click"
+        );
+
+        window.open(
+          TABING_GUHIT_URL,
+          "_blank",
+          "noopener,noreferrer"
         );
 
       }
@@ -1038,29 +1036,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      await navigator.clipboard.writeText(
-        link
-      );
+      if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
+
+        await navigator.clipboard.writeText(
+          link
+        );
+
+      } else {
+
+        const fallbackInput =
+          document.createElement("input");
+
+        fallbackInput.value =
+          link;
+
+        fallbackInput.style.position =
+          "fixed";
+
+        fallbackInput.style.opacity =
+          "0";
+
+        document.body.appendChild(
+          fallbackInput
+        );
+
+        fallbackInput.focus();
+
+        fallbackInput.select();
+
+        document.execCommand(
+          "copy"
+        );
+
+        fallbackInput.remove();
+
+      }
 
     } catch (error) {
 
-      const fallbackInput =
-        document.createElement("input");
-
-      fallbackInput.value =
-        link;
-
-      document.body.appendChild(
-        fallbackInput
+      console.error(
+        "Unable to copy link:",
+        error
       );
-
-      fallbackInput.select();
-
-      document.execCommand(
-        "copy"
-      );
-
-      fallbackInput.remove();
 
     }
 
@@ -1138,7 +1158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     shareModal.addEventListener(
       "click",
-      (event) => {
+      function (event) {
 
         if (
           event.target ===
@@ -1161,7 +1181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener(
     "keydown",
-    (event) => {
+    function (event) {
 
       if (
         event.key === "Escape"
@@ -1186,7 +1206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     menuToggle.addEventListener(
       "click",
-      () => {
+      function () {
 
         navLinks.classList.toggle(
           "open"
@@ -1211,11 +1231,11 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks
       .querySelectorAll("a")
       .forEach(
-        (link) => {
+        function (link) {
 
           link.addEventListener(
             "click",
-            () => {
+            function () {
 
               navLinks.classList.remove(
                 "open"
