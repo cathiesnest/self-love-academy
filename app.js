@@ -1,3 +1,4 @@
+```javascript
 /* =========================================================
    SELF LOVE ACADEMY
    Powered by CathiesNest Digital
@@ -242,6 +243,147 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navLinks =
     document.getElementById("navLinks");
+
+
+  /* =======================================================
+     THEME SWITCHER
+     Sage Green / Mocha Neutral
+     ======================================================= */
+
+  const themeOptions =
+    document.querySelectorAll(".theme-option");
+
+  function applyTheme(theme) {
+
+    if (theme === "mocha") {
+
+      document.documentElement.setAttribute(
+        "data-theme",
+        "mocha"
+      );
+
+    } else {
+
+      document.documentElement.setAttribute(
+        "data-theme",
+        "sage"
+      );
+
+    }
+
+
+    themeOptions.forEach(
+      (option) => {
+
+        const isActive =
+          option.dataset.theme === theme;
+
+        option.classList.toggle(
+          "active",
+          isActive
+        );
+
+        option.setAttribute(
+          "aria-pressed",
+          String(isActive)
+        );
+
+      }
+    );
+
+
+    try {
+
+      localStorage.setItem(
+        "selfLoveAcademyTheme",
+        theme
+      );
+
+    } catch (error) {
+
+      /* Local storage may be unavailable.
+         Theme will still work for this visit. */
+
+    }
+
+
+    trackEvent(
+      "theme_changed",
+      {
+        theme: theme
+      }
+    );
+
+  }
+
+
+  function loadSavedTheme() {
+
+    let savedTheme = "sage";
+
+
+    try {
+
+      const storedTheme =
+        localStorage.getItem(
+          "selfLoveAcademyTheme"
+        );
+
+
+      if (
+        storedTheme === "sage" ||
+        storedTheme === "mocha"
+      ) {
+
+        savedTheme =
+          storedTheme;
+
+      }
+
+    } catch (error) {
+
+      savedTheme = "sage";
+
+    }
+
+
+    applyTheme(
+      savedTheme
+    );
+
+  }
+
+
+  if (themeOptions.length) {
+
+    themeOptions.forEach(
+      (option) => {
+
+        option.addEventListener(
+          "click",
+          () => {
+
+            const selectedTheme =
+              option.dataset.theme;
+
+            if (
+              selectedTheme === "sage" ||
+              selectedTheme === "mocha"
+            ) {
+
+              applyTheme(
+                selectedTheme
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+  }
 
 
   /* =======================================================
@@ -1097,6 +1239,8 @@ document.addEventListener("DOMContentLoaded", () => {
      INITIALIZE
      ======================================================= */
 
+  loadSavedTheme();
+
   loadQuestion();
 
 
@@ -1109,3 +1253,4 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 });
+```
