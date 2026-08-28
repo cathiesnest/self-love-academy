@@ -16,10 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const ALISON_WELLBEING_URL =
     "https://alison.com/psychometric-test/wellbeing?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117";
 
-  /*
-     Explicit Self Love Academy URL.
-     This avoids relying on window.location values.
-  */
   const SELF_LOVE_ACADEMY_URL =
     "https://cathiesnest.github.io/self-love-academy/";
 
@@ -236,6 +232,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalDone =
     document.getElementById("modalDone");
 
+  /*
+     WORKPLACE WELLBEING — DO NOT CHANGE
+  */
   const wellbeingButton =
     document.getElementById("wellbeingButton");
 
@@ -248,11 +247,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks =
     document.getElementById("navLinks");
 
-
   /*
-     FIX:
-     HTML uses .theme-button.
-     We now target the actual class used by index.html.
+     THEME BUTTONS
+     Supports the actual .theme-button class.
   */
   const themeOptions =
     document.querySelectorAll(".theme-button");
@@ -289,10 +286,15 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "mocha"
         : "sage";
 
-
     document.documentElement.dataset.theme =
       selectedTheme;
 
+    /*
+       Make sure Sage Green is explicitly active
+       when the page loads.
+    */
+    document.body.dataset.theme =
+      selectedTheme;
 
     themeOptions.forEach(function (option) {
 
@@ -302,12 +304,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive =
         optionTheme === selectedTheme;
 
-
       option.classList.toggle(
         "active",
         isActive
       );
-
 
       option.setAttribute(
         "aria-pressed",
@@ -315,7 +315,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
     });
-
 
     try {
 
@@ -326,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     } catch (error) {
 
-      /* Theme still works if localStorage is unavailable. */
+      /* Theme still works without localStorage. */
 
     }
 
@@ -337,14 +336,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let savedTheme = "sage";
 
-
     try {
 
       const storedTheme =
         localStorage.getItem(
           "selfLoveAcademyTheme"
         );
-
 
       if (
         storedTheme === "sage" ||
@@ -362,16 +359,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
     applyTheme(savedTheme);
 
   }
 
-
-  /*
-     Attach theme listeners to the actual
-     .theme-button elements in index.html.
-  */
 
   themeOptions.forEach(function (option) {
 
@@ -382,7 +373,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedTheme =
           option.dataset.theme;
 
-
         if (
           selectedTheme === "sage" ||
           selectedTheme === "mocha"
@@ -391,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
           applyTheme(
             selectedTheme
           );
-
 
           trackEvent(
             "theme_changed",
@@ -416,7 +405,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(
       '.primary-button[href="#reflection"]'
     );
-
 
   if (startButton) {
 
@@ -443,13 +431,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const item =
       questions[currentQuestion];
 
-
     if (!item) {
       return;
     }
-
-
-    /* Question counter */
 
     if (questionCounter) {
 
@@ -457,9 +441,6 @@ document.addEventListener("DOMContentLoaded", function () {
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
     }
-
-
-    /* Progress percentage */
 
     if (progressPercent) {
 
@@ -470,14 +451,10 @@ document.addEventListener("DOMContentLoaded", function () {
           100
         );
 
-
       progressPercent.textContent =
         `${percentage}%`;
 
     }
-
-
-    /* Progress bar */
 
     if (progressBar) {
 
@@ -488,9 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* Question text */
-
     if (questionText) {
 
       questionText.textContent =
@@ -499,12 +473,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Answer choices */
+    /* =====================================================
+       ANSWER OPTIONS
+       ===================================================== */
 
     if (answerOptions) {
 
       answerOptions.innerHTML = "";
-
 
       item.options.forEach(
         function (optionText, index) {
@@ -512,50 +487,54 @@ document.addEventListener("DOMContentLoaded", function () {
           const button =
             document.createElement("button");
 
-
           button.type = "button";
-
 
           button.className =
             "answer-option";
-
 
           button.setAttribute(
             "aria-label",
             optionText
           );
 
-
           button.setAttribute(
             "aria-pressed",
             "false"
           );
 
+          /*
+             Important:
+             Explicitly make each answer interactive.
+          */
+          button.style.cursor =
+            "pointer";
 
           const dot =
             document.createElement("span");
 
-
           dot.className =
             "option-dot";
-
 
           const text =
             document.createElement("span");
 
-
           text.textContent =
             optionText;
-
 
           button.appendChild(dot);
 
           button.appendChild(text);
 
-
+          /*
+             Use click listener directly on
+             each newly-created answer button.
+          */
           button.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+              event.preventDefault();
+              event.stopPropagation();
 
               selectAnswer(
                 index,
@@ -564,7 +543,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
           );
-
 
           answerOptions.appendChild(
             button
@@ -576,27 +554,74 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Reset reflection */
+    /* =====================================================
+       RESTORE SELECTED ANSWER IF ONE EXISTS
+       ===================================================== */
 
-    if (tinyReflection) {
+    const savedAnswer =
+      answers[currentQuestion];
 
-      tinyReflection.textContent =
-        "";
+    if (
+      typeof savedAnswer === "number" &&
+      answerOptions
+    ) {
 
-      tinyReflection.classList.remove(
-        "visible"
-      );
+      const buttons =
+        answerOptions.querySelectorAll(
+          ".answer-option"
+        );
+
+      const selectedButton =
+        buttons[savedAnswer];
+
+      if (selectedButton) {
+
+        selectedButton.classList.add(
+          "selected"
+        );
+
+        selectedButton.setAttribute(
+          "aria-pressed",
+          "true"
+        );
+
+        if (tinyReflection) {
+
+          tinyReflection.textContent =
+            item.reflections[savedAnswer];
+
+          tinyReflection.classList.add(
+            "visible"
+          );
+
+        }
+
+      }
+
+    } else {
+
+      if (tinyReflection) {
+
+        tinyReflection.textContent =
+          "";
+
+        tinyReflection.classList.remove(
+          "visible"
+        );
+
+      }
 
     }
 
 
-    /* Reset next button */
+    /* =====================================================
+       NEXT BUTTON
+       ===================================================== */
 
     if (nextQuestion) {
 
       nextQuestion.disabled =
         answers[currentQuestion] === undefined;
-
 
       nextQuestion.textContent =
         currentQuestion ===
@@ -622,12 +647,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-
     const buttons =
       answerOptions.querySelectorAll(
         ".answer-option"
       );
-
 
     buttons.forEach(
       function (button) {
@@ -635,7 +658,6 @@ document.addEventListener("DOMContentLoaded", function () {
         button.classList.remove(
           "selected"
         );
-
 
         button.setAttribute(
           "aria-pressed",
@@ -645,31 +667,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
-
-    /*
-       FIX:
-       The selected class is explicitly applied to
-       the button that was clicked.
-    */
-
     selectedButton.classList.add(
       "selected"
     );
-
 
     selectedButton.setAttribute(
       "aria-pressed",
       "true"
     );
 
-
     answers[currentQuestion] =
       answerIndex;
-
-
-    /*
-       Show the reflection immediately.
-    */
 
     if (tinyReflection) {
 
@@ -677,18 +685,11 @@ document.addEventListener("DOMContentLoaded", function () {
         questions[currentQuestion]
           .reflections[answerIndex];
 
-
       tinyReflection.classList.add(
         "visible"
       );
 
     }
-
-
-    /*
-       FIX:
-       Enable Next Question after an answer.
-    */
 
     if (nextQuestion) {
 
@@ -696,7 +697,6 @@ document.addEventListener("DOMContentLoaded", function () {
         false;
 
     }
-
 
     trackEvent(
       `question_${currentQuestion + 1}_answered`,
@@ -720,7 +720,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     nextQuestion.addEventListener(
       "click",
-      function () {
+      function (event) {
+
+        event.preventDefault();
 
         if (
           answers[currentQuestion] ===
@@ -731,7 +733,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
         if (
           currentQuestion <
           questions.length - 1
@@ -739,9 +740,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentQuestion++;
 
-
           loadQuestion();
-
 
           if (questionCard) {
 
@@ -774,19 +773,16 @@ document.addEventListener("DOMContentLoaded", function () {
       "self_reflection_completed"
     );
 
-
     generatePersonalReflection();
 
     generateSmallStep();
 
     generateInspiration();
 
-
     if (reflectionResult) {
 
       reflectionResult.hidden =
         false;
-
 
       reflectionResult.scrollIntoView({
         behavior: "smooth",
@@ -808,7 +804,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-
     const selectedAnswers =
       answers.map(
         function (answer, index) {
@@ -821,17 +816,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
           }
 
-
           return questions[index]
             .options[answer];
 
         }
       );
 
-
     let message =
       "Your answers show that you are willing to pause and look at yourself with honesty. ";
-
 
     const boundary =
       selectedAnswers[0] || "";
@@ -848,7 +840,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextChapter =
       selectedAnswers[4] || "";
 
-
     if (
       boundary.includes("disappointed") ||
       boundary.includes("selfish") ||
@@ -861,7 +852,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
     if (
       selfTalk.includes("harder on myself") ||
       selfTalk.includes("mistake")
@@ -871,7 +861,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "You also recognize that the way you speak to yourself deserves kindness and attention. ";
 
     }
-
 
     if (
       rest.includes("guilty") ||
@@ -884,7 +873,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
     if (
       comparison.includes("timeline") ||
       comparison.includes("far I've come")
@@ -894,7 +882,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "There is also a reminder here that your journey has its own timing. ";
 
     }
-
 
     if (
       nextChapter.includes("myself") ||
@@ -907,10 +894,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
     message +=
       "You don't need to change everything at once. Meaningful growth can begin with one honest realization and one small step.";
-
 
     personalReflection.textContent =
       message;
@@ -928,10 +913,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-
     const selectedAnswer =
       answers[4];
-
 
     const steps = [
 
@@ -947,12 +930,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ];
 
-
     const stepIndex =
       typeof selectedAnswer === "number"
         ? selectedAnswer
         : 0;
-
 
     smallStep.textContent =
       steps[stepIndex];
@@ -970,9 +951,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-
     let randomIndex;
-
 
     do {
 
@@ -987,14 +966,11 @@ document.addEventListener("DOMContentLoaded", function () {
       lastInspirationIndex
     );
 
-
     lastInspirationIndex =
       randomIndex;
 
-
     inspirationText.textContent =
       `“${inspirationMessages[randomIndex]}”`;
-
 
     if (inspirationAuthor) {
 
@@ -1002,7 +978,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "— CathiesNest Digital";
 
     }
-
 
     trackEvent(
       "inspiration_generated"
@@ -1031,6 +1006,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =======================================================
      WORKPLACE WELLBEING
+     DO NOT TOUCH
      ======================================================= */
 
   if (wellbeingButton) {
@@ -1042,7 +1018,6 @@ document.addEventListener("DOMContentLoaded", function () {
         trackEvent(
           "wellbeing_checkin_click"
         );
-
 
         window.open(
           ALISON_WELLBEING_URL,
@@ -1070,7 +1045,6 @@ document.addEventListener("DOMContentLoaded", function () {
           "tabing_guhit_click"
         );
 
-
         window.open(
           TABING_GUHIT_URL,
           "_blank",
@@ -1092,15 +1066,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const link =
       SELF_LOVE_ACADEMY_URL;
 
-
-    let copiedSuccessfully = false;
-
+    let copiedSuccessfully =
+      false;
 
     try {
-
-      /*
-         Preferred modern clipboard method.
-      */
 
       if (
         navigator.clipboard &&
@@ -1111,28 +1080,21 @@ document.addEventListener("DOMContentLoaded", function () {
           link
         );
 
-        copiedSuccessfully = true;
+        copiedSuccessfully =
+          true;
 
       } else {
-
-        /*
-           Fallback for browsers where Clipboard API
-           is unavailable.
-        */
 
         const fallbackInput =
           document.createElement("textarea");
 
-
         fallbackInput.value =
           link;
-
 
         fallbackInput.setAttribute(
           "readonly",
           ""
         );
-
 
         fallbackInput.style.position =
           "fixed";
@@ -1143,20 +1105,16 @@ document.addEventListener("DOMContentLoaded", function () {
         fallbackInput.style.top =
           "0";
 
-
         document.body.appendChild(
           fallbackInput
         );
-
 
         fallbackInput.focus();
 
         fallbackInput.select();
 
-
         copiedSuccessfully =
           document.execCommand("copy");
-
 
         fallbackInput.remove();
 
@@ -1178,12 +1136,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "share_link_clicked"
       );
 
-
       if (shareModal) {
 
         shareModal.hidden =
           false;
-
 
         document.body.classList.add(
           "modal-open"
@@ -1192,11 +1148,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
     } else {
-
-      /*
-         If the browser blocks copying, do not
-         falsely tell the visitor that it worked.
-      */
 
       alert(
         "The link could not be copied automatically. Please copy the page address from your browser."
@@ -1211,7 +1162,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     shareButton.addEventListener(
       "click",
-      copyAcademyLink
+      function (event) {
+
+        event.preventDefault();
+
+        copyAcademyLink();
+
+      }
     );
 
   }
@@ -1227,7 +1184,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       shareModal.hidden =
         true;
-
 
       document.body.classList.remove(
         "modal-open"
@@ -1316,12 +1272,10 @@ document.addEventListener("DOMContentLoaded", function () {
           "open"
         );
 
-
         const isOpen =
           navLinks.classList.contains(
             "open"
           );
-
 
         menuToggle.setAttribute(
           "aria-expanded",
@@ -1330,7 +1284,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
     );
-
 
     navLinks
       .querySelectorAll("a")
@@ -1344,7 +1297,6 @@ document.addEventListener("DOMContentLoaded", function () {
               navLinks.classList.remove(
                 "open"
               );
-
 
               menuToggle.setAttribute(
                 "aria-expanded",
