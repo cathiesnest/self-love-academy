@@ -1,4 +1,3 @@
-```css
 /* =========================================================
    SELF LOVE ACADEMY
    Powered by CathiesNest Digital
@@ -65,7 +64,6 @@ body {
   color: var(--brown-dark);
 
   line-height: 1.7;
-
   font-size: 17px;
 
   overflow-x: hidden;
@@ -78,6 +76,10 @@ a {
 
 button {
   cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 a {
@@ -105,11 +107,7 @@ a {
    ========================================================= */
 
 .section-container {
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
-
+  width: min(calc(100% - 40px), var(--max-width));
   margin: 0 auto;
 }
 
@@ -121,16 +119,13 @@ a {
 
 .section-kicker {
   display: inline-block;
-
   margin-bottom: 14px;
 
   font-size: 0.9rem;
   font-weight: 800;
-
   letter-spacing: 0.14em;
 
   color: var(--sage-deep);
-
   text-transform: uppercase;
 }
 
@@ -140,11 +135,8 @@ a {
 .wellbeing-card h2,
 .share-card h2 {
   font-family: Georgia, "Times New Roman", serif;
-
   font-weight: 500;
-
   line-height: 1.25;
-
   color: var(--brown-dark);
 }
 
@@ -154,9 +146,7 @@ a {
 
 .section-heading p {
   margin-top: 18px;
-
   color: var(--brown);
-
   font-size: 1.18rem;
 }
 
@@ -171,20 +161,15 @@ a {
   z-index: 1000;
 
   background: rgba(255, 253, 245, 0.96);
-
   backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(201, 173, 145, 0.45);
 }
 
 .navbar {
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
+  width: min(calc(100% - 40px), var(--max-width));
 
   min-height: 78px;
-
   margin: 0 auto;
 
   display: flex;
@@ -197,8 +182,9 @@ a {
 .brand {
   display: flex;
   align-items: center;
-
   gap: 12px;
+
+  flex-shrink: 0;
 }
 
 .brand-icon {
@@ -209,7 +195,6 @@ a {
   height: 46px;
 
   border-radius: 50%;
-
   background: var(--mint);
 
   font-size: 1.45rem;
@@ -223,33 +208,27 @@ a {
 }
 
 .brand-text strong {
-  font-size: 0.92rem;
-
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
-
   color: var(--brown-dark);
 }
 
 .brand-text small {
-  font-size: 0.76rem;
-
+  font-size: 0.84rem;
   color: var(--brown);
-
   margin-top: 1px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-
   gap: 30px;
 }
 
 .nav-links a {
   position: relative;
 
-  font-size: 0.98rem;
-
+  font-size: 1.08rem;
   font-weight: 700;
 
   color: var(--brown);
@@ -277,7 +256,6 @@ a {
 
 .nav-links a:hover {
   color: var(--sage-deep);
-
   transform: translateY(-1px);
 }
 
@@ -289,7 +267,6 @@ a {
   display: none;
 
   border: none;
-
   background: var(--mint);
 
   color: var(--brown-dark);
@@ -392,9 +369,7 @@ a {
   color: var(--brown-dark);
 
   font-size: 0.88rem;
-
   font-weight: 800;
-
   letter-spacing: 0.13em;
 }
 
@@ -408,11 +383,7 @@ a {
 
   font-weight: 500;
 
-  font-size: clamp(
-    3rem,
-    7vw,
-    5.7rem
-  );
+  font-size: clamp(3rem, 7vw, 5.7rem);
 
   line-height: 1.08;
 
@@ -423,7 +394,6 @@ a {
 
 .hero h1 span {
   display: block;
-
   color: var(--brown-dark);
 }
 
@@ -432,11 +402,7 @@ a {
 
   margin: 30px auto 0;
 
-  font-size: clamp(
-    1.12rem,
-    2vw,
-    1.4rem
-  );
+  font-size: clamp(1.12rem, 2vw, 1.4rem);
 
   color: var(--brown-dark);
 }
@@ -454,16 +420,14 @@ a {
   color: var(--brown-dark);
 
   font-size: 0.9rem;
-
   font-weight: 800;
 }
 
 .hero-decoration {
   position: absolute;
-
   color: rgba(62, 43, 32, 0.22);
-
   font-size: 4rem;
+  pointer-events: none;
 }
 
 .hero-leaf-left {
@@ -511,7 +475,6 @@ a {
   border-radius: 999px;
 
   font-weight: 800;
-
   font-size: 1rem;
 
   border: none;
@@ -559,9 +522,7 @@ a {
 
 .secondary-button:disabled {
   opacity: 0.45;
-
   cursor: not-allowed;
-
   transform: none;
 }
 
@@ -578,6 +539,8 @@ a {
 }
 
 .intro-card {
+  position: relative;
+
   max-width: 850px;
 
   margin: 0 auto;
@@ -591,8 +554,6 @@ a {
   border-radius: var(--radius-large);
 
   box-shadow: var(--shadow-soft);
-
-  position: relative;
 
   overflow: hidden;
 }
@@ -667,13 +628,11 @@ a {
 
 .progress-wrapper {
   width: min(720px, 100%);
-
   margin: 0 auto 35px;
 }
 
 .progress-label {
   display: flex;
-
   justify-content: space-between;
 
   margin-bottom: 9px;
@@ -681,7 +640,6 @@ a {
   color: var(--brown-dark);
 
   font-size: 0.95rem;
-
   font-weight: 800;
 }
 
@@ -697,7 +655,6 @@ a {
 
 .progress-bar {
   width: 20%;
-
   height: 100%;
 
   border-radius: inherit;
@@ -752,9 +709,7 @@ a {
   color: var(--sage-deep);
 
   font-size: 0.88rem;
-
   font-weight: 800;
-
   letter-spacing: 0.11em;
 
   text-transform: uppercase;
@@ -763,11 +718,7 @@ a {
 .question-content h3 {
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(
-    1.7rem,
-    3.2vw,
-    2.25rem
-  );
+  font-size: clamp(1.7rem, 3.2vw, 2.25rem);
 
   font-weight: 500;
 
@@ -811,6 +762,9 @@ a {
     border-color 0.2s ease,
     background 0.2s ease,
     transform 0.2s ease;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .answer-option:hover {
@@ -883,9 +837,7 @@ a {
 
 .question-actions {
   display: flex;
-
   justify-content: center;
-
   margin-top: 25px;
 }
 
@@ -927,11 +879,7 @@ a {
 
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(
-    2.2rem,
-    4.2vw,
-    3.2rem
-  );
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
 
   line-height: 1.25;
 
@@ -1013,9 +961,7 @@ a {
   color: var(--sage-deep);
 
   font-size: 0.8rem;
-
   font-weight: 800;
-
   letter-spacing: 0.12em;
 }
 
@@ -1093,11 +1039,7 @@ a {
 
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(
-    1.6rem,
-    3vw,
-    2.3rem
-  );
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
 
   line-height: 1.45;
 
@@ -1108,7 +1050,6 @@ a {
   color: var(--brown);
 
   font-size: 0.96rem;
-
   font-weight: 700;
 }
 
@@ -1126,7 +1067,6 @@ a {
   color: var(--brown-dark);
 
   font-size: 0.98rem;
-
   font-weight: 800;
 
   transition:
@@ -1136,7 +1076,6 @@ a {
 
 .inspiration-button:hover {
   transform: translateY(-2px);
-
   background: var(--cream);
 }
 
@@ -1195,7 +1134,6 @@ a {
 
 .wellbeing-leaf {
   position: relative;
-
   z-index: 1;
 
   font-size: 2.3rem;
@@ -1205,25 +1143,19 @@ a {
 
 .wellbeing-card h2 {
   position: relative;
-
   z-index: 1;
 
   max-width: 650px;
 
   margin: 5px auto 20px;
 
-  font-size: clamp(
-    2.2rem,
-    4.2vw,
-    3.2rem
-  );
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
 
   color: var(--brown-dark);
 }
 
 .wellbeing-card > p {
   position: relative;
-
   z-index: 1;
 
   max-width: 670px;
@@ -1239,7 +1171,6 @@ a {
 
 .wellbeing-card .primary-button {
   position: relative;
-
   z-index: 1;
 
   margin-top: 22px;
@@ -1247,7 +1178,6 @@ a {
 
 .gentle-note {
   position: relative;
-
   z-index: 1;
 
   display: block;
@@ -1306,11 +1236,7 @@ a {
 }
 
 .share-card h2 {
-  font-size: clamp(
-    2.2rem,
-    4.2vw,
-    3.2rem
-  );
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
 
   margin-bottom: 17px;
 }
@@ -1352,7 +1278,6 @@ a {
   z-index: 2000;
 
   display: grid;
-
   place-items: center;
 
   padding: 20px;
@@ -1360,6 +1285,10 @@ a {
   background: rgba(62, 43, 32, 0.42);
 
   backdrop-filter: blur(5px);
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .share-modal-content {
@@ -1375,7 +1304,8 @@ a {
 
   border-radius: var(--radius-large);
 
-  box-shadow: 0 25px 70px rgba(62, 43, 32, 0.25);
+  box-shadow:
+    0 25px 70px rgba(62, 43, 32, 0.25);
 
   animation: modalAppear 0.3s ease both;
 }
@@ -1419,18 +1349,17 @@ a {
 
   color: var(--sage-deep);
 
-  box-shadow: 0 8px 25px rgba(62, 43, 32, 0.08);
+  box-shadow:
+    0 8px 25px rgba(62, 43, 32, 0.08);
 }
 
 .success-leaf {
   font-size: 1.6rem;
-
   transform: rotate(-10deg);
 }
 
 .success-heart {
   margin-left: -6px;
-
   font-size: 2.1rem;
 }
 
@@ -1536,11 +1465,7 @@ a {
 
   margin: 5px auto 20px;
 
-  font-size: clamp(
-    2.2rem,
-    4.2vw,
-    3.2rem
-  );
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
 }
 
 .true-north-card > p {
@@ -1577,13 +1502,11 @@ a {
 
 .about-content {
   max-width: 800px;
-
   margin: 0 auto;
 }
 
 .about-content > .section-kicker {
   display: block;
-
   text-align: center;
 }
 
@@ -1594,11 +1517,7 @@ a {
 
   text-align: center;
 
-  font-size: clamp(
-    2.2rem,
-    4.5vw,
-    3.4rem
-  );
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
 }
 
 .about-letter {
@@ -1720,7 +1639,6 @@ a {
   color: var(--brown-dark);
 
   font-size: 1.02rem;
-
   font-weight: 800;
 }
 
@@ -1793,10 +1711,7 @@ a {
 }
 
 .footer-inner {
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
+  width: min(calc(100% - 40px), var(--max-width));
 
   margin: 0 auto;
 }
@@ -1887,96 +1802,53 @@ a {
 
 
 /* =========================================================
-   THEME RESTORATION
-   Keeps the existing design and functionality intact.
-   ========================================================= */
-
-html,
-body {
-  background-color: var(--cream);
-}
-
-main {
-  background-color: var(--cream);
-}
-
-.intro,
-.reflection,
-.wellbeing,
-.share-section,
-.true-north,
-.about,
-.disclaimer,
-.legal {
-  background-color: var(--cream);
-}
-
-.intro-card,
-.small-step-card,
-.share-card {
-  background-color: var(--mint);
-}
-
-.inspiration-card {
-  background-color: var(--yellow);
-}
-
-.question-card,
-.about-letter {
-  background-color: var(--white);
-}
-
-.disclaimer details,
-.legal-card {
-  background-color: var(--cream-dark);
-}
-
-.site-header {
-  background-color: rgba(255, 253, 245, 0.96);
-}
-
-.site-footer {
-  background-color: var(--brown-dark);
-}
-
-
-/* =========================================================
    THEME SWITCHER
    Sage Green / Mocha Neutral
-   Visual only — existing functions remain unchanged.
    ========================================================= */
 
 .theme-switcher {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
+
   flex-shrink: 0;
 }
 
 .theme-label {
-  font-size: 0.68rem;
+  font-size: 0.82rem;
+
   font-weight: 800;
-  letter-spacing: 0.1em;
+
+  letter-spacing: 0.09em;
+
   color: var(--brown-light);
 }
 
-.theme-option {
+.theme-option,
+.theme-button {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 5px;
 
   min-height: 38px;
+
   padding: 7px 11px;
 
   border: 1px solid var(--brown-pale);
+
   border-radius: 999px;
 
   background: var(--cream);
 
   color: var(--brown);
 
-  font-size: 0.76rem;
+  font-size: 0.84rem;
+
   font-weight: 800;
 
   cursor: pointer;
@@ -1989,13 +1861,29 @@ main {
     box-shadow 0.2s ease;
 }
 
-.theme-option:hover {
+.theme-option:hover,
+.theme-button:hover {
   transform: translateY(-1px);
 }
 
-.theme-option.active {
+.theme-option.active,
+.theme-button.active {
   background: var(--mint);
+
   border-color: var(--sage-dark);
+
+  color: var(--brown-dark);
+
+  box-shadow:
+    0 4px 12px rgba(62, 43, 32, 0.10);
+}
+
+.theme-option[aria-pressed="true"],
+.theme-button[aria-pressed="true"] {
+  background: var(--mint);
+
+  border-color: var(--sage-dark);
+
   color: var(--brown-dark);
 
   box-shadow:
@@ -2006,6 +1894,7 @@ main {
   position: relative;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -2016,7 +1905,7 @@ main {
 
 
 /* =========================================================
-   LITTLE SOAKED TEA BAG DETAIL
+   LITTLE TEA BAG DETAIL
    ========================================================= */
 
 .tea-bag {
@@ -2117,10 +2006,11 @@ html[data-theme="mocha"] .site-header {
 
 
 /* =========================================================
-   THEME BUTTON ACTIVE STATES
+   THEME ACTIVE STATES
    ========================================================= */
 
-html[data-theme="sage"] .theme-option[data-theme="sage"] {
+html[data-theme="sage"] .theme-option[data-theme="sage"],
+html[data-theme="sage"] .theme-button[data-theme="sage"] {
   background: var(--mint);
 
   border-color: var(--sage-dark);
@@ -2128,7 +2018,8 @@ html[data-theme="sage"] .theme-option[data-theme="sage"] {
   color: var(--brown-dark);
 }
 
-html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
+html[data-theme="mocha"] .theme-option[data-theme="mocha"],
+html[data-theme="mocha"] .theme-button[data-theme="mocha"] {
   background: var(--mint);
 
   border-color: var(--sage-dark);
@@ -2147,7 +2038,8 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
     display: none;
   }
 
-  .theme-option {
+  .theme-option,
+  .theme-button {
     width: 38px;
 
     min-height: 38px;
@@ -2157,15 +2049,18 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
     font-size: 0;
   }
 
-  .theme-option > span:last-child {
+  .theme-option > span:last-child,
+  .theme-button > span:last-child {
     display: none;
   }
 
-  .theme-option:first-of-type {
+  .theme-option:first-of-type,
+  .theme-button:first-of-type {
     font-size: 1rem;
   }
 
-  .theme-option .tea-icon {
+  .theme-option .tea-icon,
+  .theme-button .tea-icon {
     font-size: 1rem;
   }
 }
@@ -2198,11 +2093,11 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
   }
 
   .brand-text strong {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
 
   .brand-text small {
-    font-size: 0.65rem;
+    font-size: 0.66rem;
   }
 
   .menu-toggle {
@@ -2213,6 +2108,7 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
     position: absolute;
 
     top: 70px;
+
     left: 14px;
     right: 14px;
 
@@ -2423,10 +2319,65 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
     gap: 5px;
   }
 
-  .theme-option {
+  .theme-option,
+  .theme-button {
     width: 36px;
 
     min-height: 36px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.2rem;
+  }
+
+  .brand-text strong {
+    font-size: 0.68rem;
+  }
+
+  .brand-text small {
+    font-size: 0.58rem;
+  }
+
+  .navbar {
+    gap: 8px;
+  }
+
+  .hero {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .question-actions {
+    width: 100%;
+  }
+
+  .question-actions .secondary-button {
+    width: 100%;
+  }
+
+  .share-modal-content {
+    padding: 42px 22px 30px;
   }
 }
 
@@ -2451,31 +2402,3 @@ html[data-theme="mocha"] .theme-option[data-theme="mocha"] {
     transition-duration: 0.01ms !important;
   }
 }
-
-
-/* =========================================================
-   TOP NAVIGATION — READABILITY ENHANCEMENT
-   Font size only — no layout or functionality changes.
-   ========================================================= */
-
-.brand-text strong {
-  font-size: 1.05rem;
-}
-
-.brand-text small {
-  font-size: 0.84rem;
-}
-
-.nav-links a {
-  font-size: 1.08rem;
-}
-
-.theme-label {
-  font-size: 0.82rem;
-  letter-spacing: 0.09em;
-}
-
-.theme-option {
-  font-size: 0.84rem;
-}
-```
