@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =======================================================
-     CONFIGURATION
+     LINKS
      ======================================================= */
 
   const TABING_GUHIT_URL =
@@ -20,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     REFLECTION QUESTIONS
+     FIVE REFLECTION QUESTIONS
      ======================================================= */
 
   const questions = [
+
     {
       question:
         "When you say “yes” to something you don't really have the energy for, what are you afraid might happen if you said “no”?",
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reflections: [
         "It's easy to protect other people's feelings while forgetting to check in with your own.",
-        "Wanting to be kind doesn't mean you have to say yes to everything.",
+        "Being kind doesn't mean you have to say yes to everything.",
         "Avoiding conflict can sometimes mean carrying more than you actually need to.",
         "Being needed by others doesn't have to come at the cost of being there for yourself.",
         "Not knowing is okay. Sometimes awareness begins simply by noticing the question."
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reflections: [
         "You already understand that mistakes are part of being human. You deserve that same understanding too.",
-        "One moment cannot tell the whole story of who someone is—including you.",
+        "One moment cannot tell the whole story of who someone is — including you.",
         "Growth doesn't require perfection. Sometimes it simply requires the courage to continue.",
         "You know how to offer kindness. Maybe some of that kindness belongs to you, too.",
         "That realization alone can be powerful: the voice you use with yourself matters."
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     {
       question:
-        "When you finally have free time, do you allow yourself to rest—or do you immediately look for something you should be doing?",
+        "When you finally have free time, do you allow yourself to rest — or do you immediately look for something you should be doing?",
 
       options: [
         "I rest without guilt.",
@@ -100,10 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
 
       reflections: [
-        "You are remembering that every visible success has an invisible story behind it.",
+        "Every visible success has an invisible story behind it.",
         "What we see is rarely the whole picture. Comparison often leaves out everything happening behind the scenes.",
         "Your life does not need to follow someone else's calendar.",
-        "Looking backward can remind you that you have already survived and grown through things you once thought you couldn't.",
+        "Looking backward can remind you that you've already survived and grown through things you once thought you couldn't.",
         "Sometimes the first step away from comparison is simply realizing we were comparing incomplete stories."
       ]
     },
@@ -124,87 +125,40 @@ document.addEventListener("DOMContentLoaded", () => {
         "Making space for yourself isn't selfish. You are part of the life you're responsible for caring for.",
         "A boundary isn't necessarily a rejection of someone else. Sometimes it's a way of respecting yourself.",
         "There may be a small part of your life waiting for permission to begin.",
-        "Your happiness deserves consideration too—not only everyone else's expectations.",
+        "Your happiness deserves consideration too — not only everyone else's expectations.",
         "You don't have to know the whole answer today. Sometimes the question itself opens the door."
       ]
     }
+
   ];
 
 
   /* =======================================================
-     RANDOM INSPIRATION MESSAGES
+     INSPIRATION MESSAGES
      ======================================================= */
 
   const inspirationMessages = [
-    {
-      text:
-        "With hardship comes ease. Keep your faith stronger than fear. Good days are coming.",
-      author:
-        "CathiesNest Digital"
-    },
 
-    {
-      text:
-        "You don't have to have everything figured out. You only need enough courage for the next small step.",
-      author:
-        "CathiesNest Digital"
-    },
+    "With hardship comes ease. Keep your faith stronger than fear. Good days are coming.",
 
-    {
-      text:
-        "Rest is not falling behind. Sometimes slowing down is how we find our way forward.",
-      author:
-        "CathiesNest Digital"
-    },
+    "You don't have to have everything figured out. You only need enough courage for the next small step.",
 
-    {
-      text:
-        "Your worth was never measured by how much you could do for everyone else.",
-      author:
-        "CathiesNest Digital"
-    },
+    "Rest is not falling behind. Sometimes slowing down is how we find our way forward.",
 
-    {
-      text:
-        "You are allowed to outgrow the version of yourself that existed only to survive.",
-      author:
-        "CathiesNest Digital"
-    },
+    "Your worth was never measured by how much you could do for everyone else.",
 
-    {
-      text:
-        "Starting again does not erase how far you've already come.",
-      author:
-        "CathiesNest Digital"
-    },
+    "You are allowed to outgrow the version of yourself that existed only to survive.",
 
-    {
-      text:
-        "Be gentle with yourself. You are still becoming.",
-      author:
-        "CathiesNest Digital"
-    },
+    "Starting again does not erase how far you've already come.",
 
-    {
-      text:
-        "Some seasons are for building. Some are for healing. Both are part of growth.",
-      author:
-        "CathiesNest Digital"
-    },
+    "Be gentle with yourself. You are still becoming.",
 
-    {
-      text:
-        "You don't need permission to take care of yourself.",
-      author:
-        "CathiesNest Digital"
-    },
+    "Some seasons are for building. Some are for healing. Both are part of growth.",
 
-    {
-      text:
-        "Your next chapter does not have to look like anyone else's.",
-      author:
-        "CathiesNest Digital"
-    }
+    "You don't need permission to take care of yourself.",
+
+    "Your next chapter does not have to look like anyone else's."
+
   ];
 
 
@@ -220,20 +174,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     ELEMENT HELPERS
+     ELEMENTS
      ======================================================= */
 
-  const get = (id) =>
-    document.getElementById(id);
+  const questionCard =
+    document.getElementById("questionCard");
+
+  const questionText =
+    document.getElementById("questionText");
+
+  const answerOptions =
+    document.getElementById("answerOptions");
+
+  const questionCounter =
+    document.getElementById("questionCounter");
+
+  const progressPercent =
+    document.getElementById("progressPercent");
+
+  const progressBar =
+    document.getElementById("progressBar");
+
+  const tinyReflection =
+    document.getElementById("tinyReflection");
+
+  const nextQuestion =
+    document.getElementById("nextQuestion");
+
+  const reflectionResult =
+    document.getElementById("reflectionResult");
+
+  const personalReflection =
+    document.getElementById("personalReflection");
+
+  const smallStep =
+    document.getElementById("smallStep");
+
+  const inspirationText =
+    document.getElementById("inspirationText");
+
+  const inspirationAuthor =
+    document.querySelector(".inspiration-author");
+
+  const newInspiration =
+    document.getElementById("newInspiration");
+
+  const shareButton =
+    document.getElementById("shareButton");
+
+  const shareModal =
+    document.getElementById("shareModal");
+
+  const closeShareModal =
+    document.getElementById("closeShareModal");
+
+  const modalDone =
+    document.getElementById("modalDone");
+
+  const wellbeingButton =
+    document.getElementById("wellbeingButton");
+
+  const tabingGuhitButton =
+    document.getElementById("tabingGuhitButton");
+
+  const menuToggle =
+    document.getElementById("menuToggle");
+
+  const navLinks =
+    document.getElementById("navLinks");
 
 
   /* =======================================================
-     GOOGLE ANALYTICS HELPER
+     GOOGLE ANALYTICS
      ======================================================= */
 
   function trackEvent(eventName, parameters = {}) {
 
-    if (typeof window.gtag === "function") {
+    if (
+      typeof window.gtag === "function"
+    ) {
 
       window.gtag(
         "event",
@@ -242,62 +261,24 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
     }
+
   }
 
 
   /* =======================================================
-     QUESTION ELEMENTS
+     START REFLECTION
      ======================================================= */
 
-  const questionNumber =
-    get("questionNumber");
+  const startButton =
+    document.querySelector(
+      '.primary-button[href="#reflection"]'
+    );
 
-  const questionText =
-    get("questionText");
+  if (startButton) {
 
-  const answerOptions =
-    get("answerOptions");
-
-  const progressBar =
-    get("progressBar");
-
-  const progressText =
-    get("progressText");
-
-  const tinyReflection =
-    get("tinyReflection");
-
-  const nextButton =
-    get("nextButton");
-
-  const reflectionResult =
-    get("reflectionResult");
-
-
-  /* =======================================================
-     START BUTTON
-     ======================================================= */
-
-  const startReflectionButton =
-    get("startReflection");
-
-  if (startReflectionButton) {
-
-    startReflectionButton.addEventListener(
+    startButton.addEventListener(
       "click",
       () => {
-
-        const reflectionSection =
-          get("reflection");
-
-        if (reflectionSection) {
-
-          reflectionSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        }
 
         trackEvent(
           "self_reflection_started"
@@ -318,13 +299,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const item =
       questions[currentQuestion];
 
-    if (!item) return;
+
+    if (!item) {
+      return;
+    }
 
 
-    if (questionNumber) {
+    if (questionCounter) {
 
-      questionNumber.textContent =
-        String(currentQuestion + 1).padStart(2, "0");
+      questionCounter.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    }
+
+
+    if (progressPercent) {
+
+      const percentage =
+        Math.round(
+          ((currentQuestion + 1) /
+            questions.length) *
+          100
+        );
+
+      progressPercent.textContent =
+        `${percentage}%`;
+
+    }
+
+
+    if (progressBar) {
+
+      progressBar.style.width =
+        `${((currentQuestion + 1) /
+          questions.length) *
+          100}%`;
 
     }
 
@@ -337,25 +346,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (progressText) {
-
-      progressText.textContent =
-        `Question ${currentQuestion + 1} of ${questions.length}`;
-
-    }
-
-
-    if (progressBar) {
-
-      progressBar.style.width =
-        `${((currentQuestion + 1) / questions.length) * 100}%`;
-
-    }
-
-
     if (answerOptions) {
 
       answerOptions.innerHTML = "";
+
 
       item.options.forEach(
         (option, index) => {
@@ -363,15 +357,18 @@ document.addEventListener("DOMContentLoaded", () => {
           const button =
             document.createElement("button");
 
-          button.type = "button";
+
+          button.type =
+            "button";
+
 
           button.className =
             "answer-option";
 
-          button.setAttribute(
-            "aria-label",
-            option
-          );
+
+          button.dataset.answer =
+            option;
+
 
           button.innerHTML = `
             <span class="option-dot"></span>
@@ -392,7 +389,9 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          answerOptions.appendChild(button);
+          answerOptions.appendChild(
+            button
+          );
 
         }
       );
@@ -412,14 +411,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (nextButton) {
+    if (nextQuestion) {
 
-      nextButton.disabled = true;
+      nextQuestion.disabled =
+        true;
 
-      nextButton.textContent =
-        currentQuestion === questions.length - 1
+      nextQuestion.textContent =
+        currentQuestion ===
+        questions.length - 1
           ? "See My Reflection →"
-          : "Next →";
+          : "Next Question →";
 
     }
 
@@ -435,10 +436,16 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedButton
   ) {
 
+    if (!answerOptions) {
+      return;
+    }
+
+
     const buttons =
       answerOptions.querySelectorAll(
         ".answer-option"
       );
+
 
     buttons.forEach(
       (button) => {
@@ -473,9 +480,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (nextButton) {
+    if (nextQuestion) {
 
-      nextButton.disabled = false;
+      nextQuestion.disabled =
+        false;
 
     }
 
@@ -485,6 +493,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         question_number:
           currentQuestion + 1,
+
         answer_number:
           answerIndex + 1
       }
@@ -497,9 +506,9 @@ document.addEventListener("DOMContentLoaded", () => {
      NEXT QUESTION
      ======================================================= */
 
-  if (nextButton) {
+  if (nextQuestion) {
 
-    nextButton.addEventListener(
+    nextQuestion.addEventListener(
       "click",
       () => {
 
@@ -519,6 +528,16 @@ document.addEventListener("DOMContentLoaded", () => {
           currentQuestion++;
 
           loadQuestion();
+
+
+          if (questionCard) {
+
+            questionCard.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+          }
 
         } else {
 
@@ -543,10 +562,18 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+    generatePersonalReflection();
+
+    generateSmallStep();
+
+    generateInspiration();
+
+
     if (reflectionResult) {
 
       reflectionResult.hidden =
         false;
+
 
       reflectionResult.scrollIntoView({
         behavior: "smooth",
@@ -554,13 +581,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     }
-
-
-    generatePersonalReflection();
-
-    generateSmallStep();
-
-    generateInspiration();
 
   }
 
@@ -571,51 +591,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generatePersonalReflection() {
 
-    const reflection =
-      get("personalReflection");
-
-    if (!reflection) return;
+    if (!personalReflection) {
+      return;
+    }
 
 
     const selectedAnswers =
       answers.map(
-        (answer, index) =>
-          questions[index]
-            .options[answer]
+        (answer, index) => {
+
+          if (
+            answer === undefined
+          ) {
+            return "";
+
+          }
+
+          return questions[index]
+            .options[answer];
+
+        }
       );
-
-
-    const boundaryAnswer =
-      selectedAnswers[0] || "";
-
-    const selfTalkAnswer =
-      selectedAnswers[1] || "";
-
-    const restAnswer =
-      selectedAnswers[2] || "";
-
-    const comparisonAnswer =
-      selectedAnswers[3] || "";
-
-    const nextChapterAnswer =
-      selectedAnswers[4] || "";
 
 
     let message =
       "Your answers show that you are willing to pause and look at yourself with honesty. ";
 
 
+    const boundary =
+      selectedAnswers[0] || "";
+
+
+    const selfTalk =
+      selectedAnswers[1] || "";
+
+
+    const rest =
+      selectedAnswers[2] || "";
+
+
+    const comparison =
+      selectedAnswers[3] || "";
+
+
+    const nextChapter =
+      selectedAnswers[4] || "";
+
+
     if (
-      boundaryAnswer.includes(
+      boundary.includes(
         "disappointed"
       ) ||
-      boundaryAnswer.includes(
+      boundary.includes(
         "selfish"
       ) ||
-      boundaryAnswer.includes(
+      boundary.includes(
         "conflict"
       ) ||
-      boundaryAnswer.includes(
+      boundary.includes(
         "needed"
       )
     ) {
@@ -627,28 +660,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      selfTalkAnswer.includes(
+      selfTalk.includes(
         "harder on myself"
       ) ||
-      selfTalkAnswer.includes(
+      selfTalk.includes(
         "mistake"
       )
     ) {
 
       message +=
-        "You also seem to recognize that the way you speak to yourself deserves attention and kindness. ";
+        "You also recognize that the way you speak to yourself deserves kindness and attention. ";
 
     }
 
 
     if (
-      restAnswer.includes(
+      rest.includes(
         "guilty"
       ) ||
-      restAnswer.includes(
+      rest.includes(
         "task"
       ) ||
-      restAnswer.includes(
+      rest.includes(
         "don't really know"
       )
     ) {
@@ -660,43 +693,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (
-      comparisonAnswer.includes(
+      comparison.includes(
         "timeline"
       ) ||
-      comparisonAnswer.includes(
+      comparison.includes(
         "far I've come"
       )
     ) {
 
       message +=
-        "And there is a reminder here that your journey has its own timing. ";
+        "There is also a reminder here that your journey has its own timing. ";
 
     }
 
 
     if (
-      nextChapterAnswer.includes(
+      nextChapter.includes(
         "myself"
       ) ||
-      nextChapterAnswer.includes(
+      nextChapter.includes(
         "boundary"
       ) ||
-      nextChapterAnswer.includes(
+      nextChapter.includes(
         "happy"
       )
     ) {
 
       message +=
-        "Perhaps the next chapter is asking you to make a little more room for what you need, not only what others expect from you. ";
+        "Perhaps your next chapter is asking you to make a little more room for what you need, not only what others expect from you. ";
 
     }
 
 
     message +=
-      "You don't need to change everything at once. Sometimes meaningful growth begins with one honest realization and one small step.";
+      "You don't need to change everything at once. Meaningful growth can begin with one honest realization and one small step.";
 
 
-    reflection.textContent =
+    personalReflection.textContent =
       message;
 
   }
@@ -708,14 +741,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateSmallStep() {
 
-    const smallStep =
-      get("smallStep");
+    if (!smallStep) {
+      return;
+    }
 
-    if (!smallStep) return;
 
-
-    const answer =
-      answers[0];
+    const selectedAnswer =
+      answers[4];
 
 
     const steps = [
@@ -728,14 +760,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       "When comparison appears, remind yourself: “I am looking at their chapter, not their whole story.”",
 
-      "Write down one small thing you would like to do for yourself—and take the first tiny step toward it."
+      "Write down one small thing you would like to do for yourself — and take the first tiny step toward it."
 
     ];
 
 
     smallStep.textContent =
-      steps[answer] ||
-      steps[0];
+      steps[
+        typeof selectedAnswer === "number"
+          ? selectedAnswer
+          : 0
+      ];
 
   }
 
@@ -746,13 +781,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateInspiration() {
 
-    const quote =
-      get("inspirationQuote");
-
-    const author =
-      get("inspirationAuthor");
-
-    if (!quote) return;
+    if (!inspirationText) {
+      return;
+    }
 
 
     let randomIndex;
@@ -776,41 +807,32 @@ document.addEventListener("DOMContentLoaded", () => {
       randomIndex;
 
 
-    const message =
-      inspirationMessages[
-        randomIndex
-      ];
+    inspirationText.textContent =
+      `“${inspirationMessages[randomIndex]}”`;
 
 
-    quote.textContent =
-      `“${message.text}”`;
+    if (inspirationAuthor) {
 
-
-    if (author) {
-
-      author.textContent =
-        `— ${message.author}`;
+      inspirationAuthor.textContent =
+        "— CathiesNest Digital";
 
     }
 
 
     trackEvent(
-      "ai_message_generated"
+      "inspiration_generated"
     );
 
   }
 
 
   /* =======================================================
-     ANOTHER INSPIRATION BUTTON
+     GIVE ME ANOTHER
      ======================================================= */
 
-  const anotherInspiration =
-    get("anotherInspiration");
+  if (newInspiration) {
 
-  if (anotherInspiration) {
-
-    anotherInspiration.addEventListener(
+    newInspiration.addEventListener(
       "click",
       () => {
 
@@ -823,11 +845,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     WORKPLACE WELLBEING BUTTON
+     WORKPLACE WELLBEING
      ======================================================= */
-
-  const wellbeingButton =
-    get("wellbeingButton");
 
   if (wellbeingButton) {
 
@@ -839,12 +858,6 @@ document.addEventListener("DOMContentLoaded", () => {
           "wellbeing_checkin_click"
         );
 
-        window.open(
-          ALISON_WELLBEING_URL,
-          "_blank",
-          "noopener,noreferrer"
-        );
-
       }
     );
 
@@ -852,11 +865,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     TABING GUHIT BUTTON
+     TABING GUHIT
      ======================================================= */
-
-  const tabingGuhitButton =
-    get("tabingGuhitButton");
 
   if (tabingGuhitButton) {
 
@@ -868,12 +878,6 @@ document.addEventListener("DOMContentLoaded", () => {
           "tabing_guhit_click"
         );
 
-        window.open(
-          TABING_GUHIT_URL,
-          "_blank",
-          "noopener,noreferrer"
-        );
-
       }
     );
 
@@ -883,19 +887,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =======================================================
      CARE & SHARE
      ======================================================= */
-
-  const shareButton =
-    get("shareButton");
-
-  const shareModal =
-    get("shareModal");
-
-  const closeShareModal =
-    get("closeShareModal");
-
-  const shareAgainButton =
-    get("shareAgainButton");
-
 
   async function copyAcademyLink() {
 
@@ -911,23 +902,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } catch (error) {
 
-      const temporaryInput =
+      const fallbackInput =
         document.createElement("input");
 
-      temporaryInput.value =
+      fallbackInput.value =
         link;
 
       document.body.appendChild(
-        temporaryInput
+        fallbackInput
       );
 
-      temporaryInput.select();
+      fallbackInput.select();
 
       document.execCommand(
         "copy"
       );
 
-      temporaryInput.remove();
+      fallbackInput.remove();
 
     }
 
@@ -941,6 +932,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       shareModal.hidden =
         false;
+
+      document.body.classList.add(
+        "modal-open"
+      );
 
     }
 
@@ -957,12 +952,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  if (shareAgainButton) {
+  /* =======================================================
+     CLOSE SHARE CONFIRMATION
+     ======================================================= */
 
-    shareAgainButton.addEventListener(
-      "click",
-      copyAcademyLink
-    );
+  function closeShareConfirmation() {
+
+    if (shareModal) {
+
+      shareModal.hidden =
+        true;
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
 
   }
 
@@ -971,12 +976,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeShareModal.addEventListener(
       "click",
-      () => {
+      closeShareConfirmation
+    );
 
-        shareModal.hidden =
-          true;
+  }
 
-      }
+
+  if (modalDone) {
+
+    modalDone.addEventListener(
+      "click",
+      closeShareConfirmation
     );
 
   }
@@ -993,8 +1003,7 @@ document.addEventListener("DOMContentLoaded", () => {
           shareModal
         ) {
 
-          shareModal.hidden =
-            true;
+          closeShareConfirmation();
 
         }
 
@@ -1005,7 +1014,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     ESCAPE KEY FOR MODAL
+     ESCAPE KEY
      ======================================================= */
 
   document.addEventListener(
@@ -1013,13 +1022,10 @@ document.addEventListener("DOMContentLoaded", () => {
     (event) => {
 
       if (
-        event.key === "Escape" &&
-        shareModal &&
-        !shareModal.hidden
+        event.key === "Escape"
       ) {
 
-        shareModal.hidden =
-          true;
+        closeShareConfirmation();
 
       }
 
@@ -1030,13 +1036,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =======================================================
      MOBILE NAVIGATION
      ======================================================= */
-
-  const menuToggle =
-    get("menuToggle");
-
-  const navLinks =
-    get("navLinks");
-
 
   if (
     menuToggle &&
@@ -1050,6 +1049,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle(
           "open"
         );
+
 
         const isOpen =
           navLinks.classList.contains(
@@ -1101,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     INITIAL PAGE VIEW EVENT
+     PAGE VIEW
      ======================================================= */
 
   trackEvent(
