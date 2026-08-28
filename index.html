@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -24,7 +26,9 @@
     rel="stylesheet"
     href="style.css"
   >
+
 </head>
+
 
 <body>
 
@@ -34,37 +38,68 @@
 
   <header class="site-header">
 
-    <nav class="navbar">
+    <nav
+      class="navbar"
+      aria-label="Main navigation"
+    >
 
       <a
         href="#top"
         class="brand"
         aria-label="Self Love Academy home"
       >
-        <span class="brand-icon" aria-hidden="true">🌿</span>
+
+        <span
+          class="brand-icon"
+          aria-hidden="true"
+        >
+          🌿
+        </span>
 
         <span class="brand-text">
-          <strong>SELF LOVE ACADEMY</strong>
-          <small>Powered by CathiesNest Digital</small>
+
+          <strong>
+            SELF LOVE ACADEMY
+          </strong>
+
+          <small>
+            Powered by CathiesNest Digital
+          </small>
+
         </span>
+
       </a>
 
+
       <button
+        type="button"
         class="menu-toggle"
         id="menuToggle"
         aria-label="Open navigation menu"
         aria-expanded="false"
+        aria-controls="navLinks"
       >
         ☰
       </button>
 
-      <div class="nav-links" id="navLinks">
 
-        <a href="#reflection">Reflection</a>
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
 
-        <a href="#wellbeing">Wellbeing</a>
+        <a href="#reflection">
+          Reflection
+        </a>
 
-        <a href="#about">About</a>
+        <a href="#wellbeing">
+          Wellbeing
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
 
         <!-- =====================================
              THEME SWITCHER
@@ -79,6 +114,7 @@
             Theme
           </span>
 
+
           <button
             type="button"
             class="theme-button active"
@@ -87,8 +123,10 @@
             aria-label="Use Sage Green theme"
             aria-pressed="true"
           >
-            🌿 Sage
+            🌿
+            <span>Sage</span>
           </button>
+
 
           <button
             type="button"
@@ -98,7 +136,8 @@
             aria-label="Use Mocha theme"
             aria-pressed="false"
           >
-            ☕ Mocha
+            ☕
+            <span>Mocha</span>
           </button>
 
         </div>
@@ -112,19 +151,27 @@
 
   <main id="top">
 
+
     <!-- =========================================
          HERO
          ========================================= -->
 
     <section class="hero">
 
-      <div class="hero-decoration hero-leaf-left" aria-hidden="true">
+      <div
+        class="hero-decoration hero-leaf-left"
+        aria-hidden="true"
+      >
         ❋
       </div>
 
-      <div class="hero-decoration hero-leaf-right" aria-hidden="true">
+      <div
+        class="hero-decoration hero-leaf-right"
+        aria-hidden="true"
+      >
         ✦
       </div>
+
 
       <div class="hero-content">
 
@@ -132,32 +179,49 @@
           🌿 SELF LOVE ACADEMY
         </div>
 
+
         <h1>
           Don't Forget Who You Are,
-          <span>Even When Life Feels Heavy.</span>
+          <span>
+            Even When Life Feels Heavy.
+          </span>
         </h1>
+
 
         <p class="hero-subtitle">
           A gentle space to pause, reflect, and come back to yourself.
         </p>
 
+
         <div class="hero-promise">
 
-          <span>No Sign-Up</span>
+          <span>
+            No Sign-Up
+          </span>
 
-          <span>•</span>
+          <span>
+            •
+          </span>
 
-          <span>No Judgment</span>
+          <span>
+            No Judgment
+          </span>
 
-          <span>•</span>
+          <span>
+            •
+          </span>
 
-          <span>Just a Moment for You</span>
+          <span>
+            Just a Moment for You
+          </span>
 
         </div>
+
 
         <a
           href="#reflection"
           class="primary-button"
+          id="startReflectionButton"
         >
           🌿 Start Your Reflection
         </a>
@@ -189,11 +253,13 @@
 
       </div>
 
+
       <div class="intro-card">
 
         <div class="intro-icon">
           ♡
         </div>
+
 
         <p>
           Before you continue, take a breath.
@@ -202,9 +268,12 @@
           to pause and notice what's happening within you.
         </p>
 
+
         <p class="intro-emphasis">
           You might even have an
-          <strong>“AHA... I never thought about it that way.”</strong>
+          <strong>
+            “AHA... I never thought about it that way.”
+          </strong>
           moment.
         </p>
 
@@ -240,7 +309,7 @@
       </div>
 
 
-      <!-- Progress -->
+      <!-- PROGRESS -->
 
       <div
         class="progress-wrapper"
@@ -259,6 +328,7 @@
 
         </div>
 
+
         <div class="progress-track">
 
           <div
@@ -271,16 +341,20 @@
       </div>
 
 
-      <!-- Question Card -->
+      <!-- QUESTION CARD -->
 
       <div
         class="question-card"
         id="questionCard"
       >
 
-        <div class="question-number">
+        <div
+          class="question-number"
+          aria-hidden="true"
+        >
           01
         </div>
+
 
         <div class="question-content">
 
@@ -288,54 +362,18 @@
             A little question for you...
           </p>
 
+
           <h3 id="questionText">
             What do you imagine would happen if you said no?
           </h3>
+
 
           <div
             class="answer-options"
             id="answerOptions"
           >
 
-            <button
-              class="answer-option"
-              data-answer="They might be disappointed."
-            >
-              <span class="option-dot"></span>
-              They might be disappointed.
-            </button>
-
-            <button
-              class="answer-option"
-              data-answer="They might think I'm selfish."
-            >
-              <span class="option-dot"></span>
-              They might think I'm selfish.
-            </button>
-
-            <button
-              class="answer-option"
-              data-answer="I don't want conflict."
-            >
-              <span class="option-dot"></span>
-              I don't want conflict.
-            </button>
-
-            <button
-              class="answer-option"
-              data-answer="I'm afraid they'll stop needing me."
-            >
-              <span class="option-dot"></span>
-              I'm afraid they'll stop needing me.
-            </button>
-
-            <button
-              class="answer-option"
-              data-answer="Honestly, I'm not sure."
-            >
-              <span class="option-dot"></span>
-              Honestly, I'm not sure.
-            </button>
+            <!-- JavaScript loads the answer buttons -->
 
           </div>
 
@@ -344,7 +382,7 @@
       </div>
 
 
-      <!-- Tiny reflection message -->
+      <!-- TINY REFLECTION -->
 
       <div
         class="tiny-reflection"
@@ -353,11 +391,12 @@
       ></div>
 
 
-      <!-- Next button -->
+      <!-- NEXT BUTTON -->
 
       <div class="question-actions">
 
         <button
+          type="button"
           class="secondary-button"
           id="nextQuestion"
           disabled
@@ -382,25 +421,31 @@
           🌱
         </div>
 
+
         <span class="section-kicker">
           YOUR REFLECTION
         </span>
+
 
         <h2>
           You are allowed to grow without becoming
           someone else.
         </h2>
 
+
         <p id="personalReflection">
           Your reflection will appear here.
         </p>
 
+
+        <!-- SMALL STEP -->
 
         <div class="small-step-card">
 
           <div class="small-step-icon">
             🌱
           </div>
+
 
           <div>
 
@@ -418,7 +463,7 @@
 
 
         <!-- =========================================
-             AI / INSPIRATION CARD
+             INSPIRATION CARD
              ========================================= -->
 
         <div class="inspiration-card">
@@ -427,20 +472,25 @@
             ☀
           </div>
 
+
           <span class="section-kicker">
             A LITTLE SOMETHING FOR YOU
           </span>
+
 
           <blockquote id="inspirationText">
             “You don't have to see the whole staircase.
             Just take the next step.”
           </blockquote>
 
+
           <p class="inspiration-author">
             — CathiesNest Digital
           </p>
 
+
           <button
+            type="button"
             class="inspiration-button"
             id="newInspiration"
           >
@@ -465,28 +515,36 @@
 
       <div class="wellbeing-card">
 
-        <div class="wellbeing-leaf">
+        <div
+          class="wellbeing-leaf"
+          aria-hidden="true"
+        >
           🌿
         </div>
+
 
         <span class="section-kicker">
           WORKPLACE WELLBEING
         </span>
 
+
         <h2>
           How Are You Really Doing at Work?
         </h2>
+
 
         <p>
           Sometimes we're so busy getting through the day
           that we forget to check in with ourselves.
         </p>
 
+
         <p>
           If you'd like to pause and reflect on your
           workplace wellbeing, you can take this optional
           wellbeing check-in through Alison.
         </p>
+
 
         <a
           href="https://alison.com/psychometric-test/wellbeing?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
@@ -497,6 +555,7 @@
         >
           🌿 Take the Workplace Wellbeing Check-In →
         </a>
+
 
         <small class="gentle-note">
           For reflection and awareness — not a diagnosis.
@@ -515,29 +574,38 @@
 
       <div class="share-card">
 
-        <div class="share-icon">
+        <div
+          class="share-icon"
+          aria-hidden="true"
+        >
           ♡
         </div>
+
 
         <span class="section-kicker">
           CARE & SHARE
         </span>
 
+
         <h2>
           Someone Might Need This Today.
         </h2>
+
 
         <p>
           If this little moment of reflection helped you,
           share Self Love Academy with someone you care about.
         </p>
 
+
         <button
+          type="button"
           class="primary-button share-button"
           id="shareButton"
         >
           💚 Care & Share
         </button>
+
 
         <p class="share-subtext">
           You never know when a simple reminder can reach
@@ -558,11 +626,15 @@
       id="shareModal"
       hidden
       aria-live="polite"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="shareModalTitle"
     >
 
       <div class="share-modal-content">
 
         <button
+          type="button"
           class="modal-close"
           id="closeShareModal"
           aria-label="Close"
@@ -570,7 +642,11 @@
           ×
         </button>
 
-        <div class="success-logo">
+
+        <div
+          class="success-logo"
+          aria-hidden="true"
+        >
 
           <span class="success-leaf">
             🌿
@@ -582,15 +658,19 @@
 
         </div>
 
-        <h3>
+
+        <h3 id="shareModalTitle">
           Link Copied Successfully! 🎉
         </h3>
+
 
         <p>
           Share a little kindness today.
         </p>
 
+
         <button
+          type="button"
           class="secondary-button"
           id="modalDone"
         >
@@ -610,28 +690,36 @@
 
       <div class="true-north-card">
 
-        <div class="compass-icon">
+        <div
+          class="compass-icon"
+          aria-hidden="true"
+        >
           🧭
         </div>
+
 
         <span class="section-kicker">
           YOUR NEXT CHAPTER
         </span>
 
+
         <h2>
           Ready to Find Your True North?
         </h2>
+
 
         <p>
           Knowing yourself is one part of the journey.
           Knowing where you want to go next is another.
         </p>
 
+
         <p>
           Explore Tabing Guhit's free Find Your Niche
           experience and start discovering possibilities
           for your next chapter.
         </p>
+
 
         <a
           href="https://cathiesnest.github.io/tabing-guhit-3.0/"
@@ -663,10 +751,12 @@
           🌿 WHY SELF LOVE ACADEMY EXISTS
         </span>
 
+
         <h2>
           Sometimes you just need a quiet place
           to hear yourself think.
         </h2>
+
 
         <div class="about-letter">
 
@@ -674,10 +764,12 @@
             Life can get loud.
           </p>
 
+
           <p>
             Work. Responsibilities. Expectations.
             Other people's needs.
           </p>
+
 
           <p>
             And sometimes, somewhere between taking
@@ -685,49 +777,60 @@
             in with ourselves.
           </p>
 
+
           <p>
             Self Love Academy was created to offer a
             small, quiet space to pause.
           </p>
+
 
           <p>
             To ask yourself questions you may not
             normally ask.
           </p>
 
+
           <p>
             To notice patterns.
           </p>
+
 
           <p>
             To challenge the way you speak to yourself.
           </p>
 
+
           <p>
             To discover small steps toward growth.
           </p>
+
 
           <p>
             And maybe, once in a while, to have that little:
           </p>
 
+
           <p class="aha-moment">
             “AHA... I never thought about it that way.”
           </p>
 
+
           <p>
             moment.
           </p>
+
 
           <p>
             We believe self-improvement doesn't have
             to feel like fixing what's wrong with you.
           </p>
 
+
           <p class="about-highlight">
             Sometimes it's simply discovering what's
             already within you — and giving it room to grow.
           </p>
+
 
           <div class="about-signature">
 
@@ -760,6 +863,7 @@
           Important: Please Read
         </summary>
 
+
         <div class="disclaimer-content">
 
           <p>
@@ -770,6 +874,7 @@
             by licensed mental-health professionals.
           </p>
 
+
           <p>
             The questions, reflections, AI-generated
             messages, and other content on this website
@@ -778,15 +883,18 @@
             self-improvement purposes only.
           </p>
 
+
           <p>
             They are not intended to diagnose, treat,
             prevent, or replace professional medical or
             mental-health care.
           </p>
 
+
           <p class="disclaimer-emphasis">
             You don't have to face difficult moments alone.
           </p>
+
 
           <p>
             If you are experiencing severe emotional
@@ -797,8 +905,11 @@
             or your local emergency/crisis service.
           </p>
 
+
           <p>
-            <strong>Your wellbeing matters.</strong>
+            <strong>
+              Your wellbeing matters.
+            </strong>
           </p>
 
         </div>
@@ -820,13 +931,19 @@
           LEGAL, PRIVACY & AFFILIATE DISCLOSURE
         </span>
 
+
         <p>
           Self Love Academy is powered by
-          <strong>CathiesNest Digital</strong> and is
-          an independent website.
-          <strong>Self Love Academy is not an Alison
-          Affiliate Partner.</strong>
+          <strong>
+            CathiesNest Digital
+          </strong>
+          and is an independent website.
+          <strong>
+            Self Love Academy is not an Alison
+            Affiliate Partner.
+          </strong>
         </p>
+
 
         <p>
           Some links on this website may direct you to
@@ -837,12 +954,14 @@
           at no additional cost to you.
         </p>
 
+
         <p>
           This is a paid referral arrangement only and
           does not represent an endorsement by Alison
           or a partnership between Self Love Academy
           and Alison.
         </p>
+
 
         <p>
           Participation in any external course or
@@ -851,8 +970,11 @@
           outcome.
         </p>
 
+
         <p>
-          <strong>AI-generated content:</strong>
+          <strong>
+            AI-generated content:
+          </strong>
           AI responses and messages are provided for
           general informational, educational,
           inspirational, and self-reflection purposes
@@ -862,8 +984,11 @@
           advice.
         </p>
 
+
         <p>
-          <strong>Privacy:</strong>
+          <strong>
+            Privacy:
+          </strong>
           Self Love Academy is designed to work without
           user registration or accounts. No financial
           inputs are permanently stored by this app.
@@ -884,19 +1009,23 @@
 
     <div class="footer-inner">
 
+
       <div class="footer-brand">
 
         <div class="footer-logo">
           🌿 ♡
         </div>
 
+
         <strong>
           SELF LOVE ACADEMY
         </strong>
 
+
         <span>
           Pause. Reflect. Grow.
         </span>
+
 
         <small>
           Powered by CathiesNest Digital
@@ -907,13 +1036,21 @@
 
       <div class="footer-links">
 
-        <a href="#about">About</a>
+        <a href="#about">
+          About
+        </a>
 
-        <a href="#wellbeing">Wellbeing</a>
+        <a href="#wellbeing">
+          Wellbeing
+        </a>
 
-        <a href="#reflection">Reflection</a>
+        <a href="#reflection">
+          Reflection
+        </a>
 
-        <a href="#top">Back to Top ↑</a>
+        <a href="#top">
+          Back to Top ↑
+        </a>
 
       </div>
 
@@ -923,6 +1060,7 @@
         <span>
           Free • Simple • Device-friendly
         </span>
+
 
         <span>
           © 2026 CathiesNest Digital
@@ -942,4 +1080,5 @@
   <script src="app.js"></script>
 
 </body>
+
 </html>
