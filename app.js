@@ -16,9 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const ALISON_WELLBEING_URL =
     "https://alison.com/psychometric-test/wellbeing?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117";
 
+  /*
+     Explicit Self Love Academy URL.
+     This avoids relying on window.location values.
+  */
   const SELF_LOVE_ACADEMY_URL =
-    window.location.origin +
-    window.location.pathname;
+    "https://cathiesnest.github.io/self-love-academy/";
 
 
   /* =======================================================
@@ -245,8 +248,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks =
     document.getElementById("navLinks");
 
+
+  /*
+     FIX:
+     HTML uses .theme-button.
+     We now target the actual class used by index.html.
+  */
   const themeOptions =
-    document.querySelectorAll(".theme-option");
+    document.querySelectorAll(".theme-button");
 
 
   /* =======================================================
@@ -280,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "mocha"
         : "sage";
 
+
     document.documentElement.dataset.theme =
       selectedTheme;
 
@@ -292,10 +302,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const isActive =
         optionTheme === selectedTheme;
 
+
       option.classList.toggle(
         "active",
         isActive
       );
+
 
       option.setAttribute(
         "aria-pressed",
@@ -314,8 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     } catch (error) {
 
-      /* Theme still works even if
-         localStorage is unavailable. */
+      /* Theme still works if localStorage is unavailable. */
 
     }
 
@@ -326,12 +337,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let savedTheme = "sage";
 
+
     try {
 
       const storedTheme =
         localStorage.getItem(
           "selfLoveAcademyTheme"
         );
+
 
       if (
         storedTheme === "sage" ||
@@ -349,10 +362,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
     applyTheme(savedTheme);
 
   }
 
+
+  /*
+     Attach theme listeners to the actual
+     .theme-button elements in index.html.
+  */
 
   themeOptions.forEach(function (option) {
 
@@ -363,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedTheme =
           option.dataset.theme;
 
+
         if (
           selectedTheme === "sage" ||
           selectedTheme === "mocha"
@@ -371,6 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
           applyTheme(
             selectedTheme
           );
+
 
           trackEvent(
             "theme_changed",
@@ -395,6 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(
       '.primary-button[href="#reflection"]'
     );
+
 
   if (startButton) {
 
@@ -421,6 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const item =
       questions[currentQuestion];
 
+
     if (!item) {
       return;
     }
@@ -446,6 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
             questions.length) *
           100
         );
+
 
       progressPercent.textContent =
         `${percentage}%`;
@@ -488,10 +512,13 @@ document.addEventListener("DOMContentLoaded", function () {
           const button =
             document.createElement("button");
 
+
           button.type = "button";
+
 
           button.className =
             "answer-option";
+
 
           button.setAttribute(
             "aria-label",
@@ -499,8 +526,15 @@ document.addEventListener("DOMContentLoaded", function () {
           );
 
 
+          button.setAttribute(
+            "aria-pressed",
+            "false"
+          );
+
+
           const dot =
             document.createElement("span");
+
 
           dot.className =
             "option-dot";
@@ -508,6 +542,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const text =
             document.createElement("span");
+
 
           text.textContent =
             optionText;
@@ -562,6 +597,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestion.disabled =
         answers[currentQuestion] === undefined;
 
+
       nextQuestion.textContent =
         currentQuestion ===
         questions.length - 1
@@ -600,6 +636,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "selected"
         );
 
+
         button.setAttribute(
           "aria-pressed",
           "false"
@@ -609,9 +646,16 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+    /*
+       FIX:
+       The selected class is explicitly applied to
+       the button that was clicked.
+    */
+
     selectedButton.classList.add(
       "selected"
     );
+
 
     selectedButton.setAttribute(
       "aria-pressed",
@@ -623,11 +667,16 @@ document.addEventListener("DOMContentLoaded", function () {
       answerIndex;
 
 
+    /*
+       Show the reflection immediately.
+    */
+
     if (tinyReflection) {
 
       tinyReflection.textContent =
         questions[currentQuestion]
           .reflections[answerIndex];
+
 
       tinyReflection.classList.add(
         "visible"
@@ -635,6 +684,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /*
+       FIX:
+       Enable Next Question after an answer.
+    */
 
     if (nextQuestion) {
 
@@ -685,6 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentQuestion++;
 
+
           loadQuestion();
 
 
@@ -718,6 +773,7 @@ document.addEventListener("DOMContentLoaded", function () {
     trackEvent(
       "self_reflection_completed"
     );
+
 
     generatePersonalReflection();
 
@@ -764,6 +820,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return "";
 
           }
+
 
           return questions[index]
             .options[answer];
@@ -986,6 +1043,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "wellbeing_checkin_click"
         );
 
+
         window.open(
           ALISON_WELLBEING_URL,
           "_blank",
@@ -1012,6 +1070,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "tabing_guhit_click"
         );
 
+
         window.open(
           TABING_GUHIT_URL,
           "_blank",
@@ -1034,7 +1093,14 @@ document.addEventListener("DOMContentLoaded", function () {
       SELF_LOVE_ACADEMY_URL;
 
 
+    let copiedSuccessfully = false;
+
+
     try {
+
+      /*
+         Preferred modern clipboard method.
+      */
 
       if (
         navigator.clipboard &&
@@ -1045,31 +1111,52 @@ document.addEventListener("DOMContentLoaded", function () {
           link
         );
 
+        copiedSuccessfully = true;
+
       } else {
 
+        /*
+           Fallback for browsers where Clipboard API
+           is unavailable.
+        */
+
         const fallbackInput =
-          document.createElement("input");
+          document.createElement("textarea");
+
 
         fallbackInput.value =
           link;
 
+
+        fallbackInput.setAttribute(
+          "readonly",
+          ""
+        );
+
+
         fallbackInput.style.position =
           "fixed";
 
-        fallbackInput.style.opacity =
+        fallbackInput.style.left =
+          "-9999px";
+
+        fallbackInput.style.top =
           "0";
+
 
         document.body.appendChild(
           fallbackInput
         );
 
+
         fallbackInput.focus();
 
         fallbackInput.select();
 
-        document.execCommand(
-          "copy"
-        );
+
+        copiedSuccessfully =
+          document.execCommand("copy");
+
 
         fallbackInput.remove();
 
@@ -1085,18 +1172,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    trackEvent(
-      "share_link_clicked"
-    );
+    if (copiedSuccessfully) {
+
+      trackEvent(
+        "share_link_clicked"
+      );
 
 
-    if (shareModal) {
+      if (shareModal) {
 
-      shareModal.hidden =
-        false;
+        shareModal.hidden =
+          false;
 
-      document.body.classList.add(
-        "modal-open"
+
+        document.body.classList.add(
+          "modal-open"
+        );
+
+      }
+
+    } else {
+
+      /*
+         If the browser blocks copying, do not
+         falsely tell the visitor that it worked.
+      */
+
+      alert(
+        "The link could not be copied automatically. Please copy the page address from your browser."
       );
 
     }
@@ -1124,6 +1227,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       shareModal.hidden =
         true;
+
 
       document.body.classList.remove(
         "modal-open"
@@ -1240,6 +1344,7 @@ document.addEventListener("DOMContentLoaded", function () {
               navLinks.classList.remove(
                 "open"
               );
+
 
               menuToggle.setAttribute(
                 "aria-expanded",
