@@ -10,7 +10,7 @@
 :root {
   --sage: #A8BFA3;
   --sage-dark: #789474;
-  --sage-deep: #617A5D;
+  --sage-deep: #4F684B;
 
   --mint: #D8F0DF;
   --mint-light: #EAF7ED;
@@ -18,17 +18,17 @@
   --yellow: #FFF3B0;
   --yellow-soft: #FFF9D8;
 
-  --brown-dark: #4A3526;
-  --brown: #684D3A;
-  --brown-light: #C9AD91;
-  --brown-pale: #E7D8C7;
+  --brown-dark: #3E2B20;
+  --brown: #5A4030;
+  --brown-light: #A98C70;
+  --brown-pale: #D8C5AF;
 
   --cream: #FFFDF5;
-  --cream-dark: #F8F1E5;
+  --cream-dark: #F3EBDD;
   --white: #FFFFFF;
 
-  --shadow-soft: 0 12px 35px rgba(74, 53, 38, 0.08);
-  --shadow-hover: 0 18px 45px rgba(74, 53, 38, 0.13);
+  --shadow-soft: 0 12px 35px rgba(62, 43, 32, 0.10);
+  --shadow-hover: 0 18px 45px rgba(62, 43, 32, 0.16);
 
   --radius-small: 14px;
   --radius-medium: 24px;
@@ -64,6 +64,8 @@ body {
   color: var(--brown-dark);
 
   line-height: 1.7;
+
+  font-size: 17px;
 
   overflow-x: hidden;
 }
@@ -121,10 +123,10 @@ a {
 
   margin-bottom: 14px;
 
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 800;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 
   color: var(--sage-deep);
 
@@ -146,7 +148,7 @@ a {
 }
 
 .section-heading h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
 }
 
 .section-heading p {
@@ -154,7 +156,7 @@ a {
 
   color: var(--brown);
 
-  font-size: 1.08rem;
+  font-size: 1.18rem;
 }
 
 
@@ -167,11 +169,11 @@ a {
   top: 0;
   z-index: 1000;
 
-  background: rgba(255, 253, 245, 0.94);
+  background: rgba(255, 253, 245, 0.96);
 
   backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(201, 173, 145, 0.35);
+  border-bottom: 1px solid rgba(201, 173, 145, 0.45);
 }
 
 .navbar {
@@ -202,16 +204,16 @@ a {
   display: grid;
   place-items: center;
 
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
 
   border-radius: 50%;
 
   background: var(--mint);
 
-  font-size: 1.35rem;
+  font-size: 1.45rem;
 
-  box-shadow: 0 5px 15px rgba(74, 53, 38, 0.07);
+  box-shadow: 0 5px 15px rgba(62, 43, 32, 0.09);
 }
 
 .brand-text {
@@ -220,7 +222,7 @@ a {
 }
 
 .brand-text strong {
-  font-size: 0.86rem;
+  font-size: 0.92rem;
 
   letter-spacing: 0.08em;
 
@@ -228,7 +230,7 @@ a {
 }
 
 .brand-text small {
-  font-size: 0.69rem;
+  font-size: 0.76rem;
 
   color: var(--brown);
 
@@ -245,9 +247,9 @@ a {
 .nav-links a {
   position: relative;
 
-  font-size: 0.88rem;
+  font-size: 0.98rem;
 
-  font-weight: 600;
+  font-weight: 700;
 
   color: var(--brown);
 
@@ -291,12 +293,12 @@ a {
 
   color: var(--brown-dark);
 
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
 
   border-radius: 50%;
 
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 
@@ -327,8 +329,8 @@ a {
     ),
     linear-gradient(
       145deg,
-      var(--sage),
-      #BFD2B9
+      var(--sage-dark),
+      var(--sage)
     );
 
   overflow: hidden;
@@ -380,19 +382,19 @@ a {
 .eyebrow {
   display: inline-block;
 
-  padding: 8px 18px;
+  padding: 9px 19px;
 
   border-radius: 999px;
 
-  background: rgba(255, 253, 245, 0.68);
+  background: rgba(255, 253, 245, 0.76);
 
   color: var(--brown-dark);
 
-  font-size: 0.78rem;
+  font-size: 0.88rem;
 
   font-weight: 800;
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.13em;
 }
 
 .hero h1 {
@@ -406,9 +408,9 @@ a {
   font-weight: 500;
 
   font-size: clamp(
-    2.8rem,
+    3rem,
     7vw,
-    5.5rem
+    5.7rem
   );
 
   line-height: 1.08;
@@ -421,18 +423,18 @@ a {
 .hero h1 span {
   display: block;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 }
 
 .hero-subtitle {
-  max-width: 650px;
+  max-width: 700px;
 
   margin: 30px auto 0;
 
   font-size: clamp(
-    1.05rem,
+    1.12rem,
     2vw,
-    1.3rem
+    1.4rem
   );
 
   color: var(--brown-dark);
@@ -450,15 +452,15 @@ a {
 
   color: var(--brown-dark);
 
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .hero-decoration {
   position: absolute;
 
-  color: rgba(74, 53, 38, 0.18);
+  color: rgba(62, 43, 32, 0.22);
 
   font-size: 4rem;
 }
@@ -501,13 +503,15 @@ a {
 
   gap: 8px;
 
-  min-height: 52px;
+  min-height: 55px;
 
-  padding: 13px 25px;
+  padding: 14px 27px;
 
   border-radius: 999px;
 
   font-weight: 800;
+
+  font-size: 1rem;
 
   border: none;
 
@@ -523,7 +527,7 @@ a {
   color: var(--cream);
 
   box-shadow:
-    0 9px 22px rgba(74, 53, 38, 0.18);
+    0 9px 22px rgba(62, 43, 32, 0.20);
 }
 
 .primary-button:hover {
@@ -532,22 +536,22 @@ a {
   background: var(--brown);
 
   box-shadow:
-    0 14px 30px rgba(74, 53, 38, 0.23);
+    0 14px 30px rgba(62, 43, 32, 0.25);
 }
 
 .secondary-button {
-  background: var(--sage);
+  background: var(--sage-dark);
 
-  color: var(--brown-dark);
+  color: var(--white);
 
   box-shadow:
-    0 8px 20px rgba(74, 53, 38, 0.08);
+    0 8px 20px rgba(62, 43, 32, 0.10);
 }
 
 .secondary-button:hover:not(:disabled) {
   transform: translateY(-3px);
 
-  background: var(--sage-dark);
+  background: var(--sage-deep);
 
   color: var(--white);
 }
@@ -614,8 +618,8 @@ a {
   display: grid;
   place-items: center;
 
-  width: 62px;
-  height: 62px;
+  width: 66px;
+  height: 66px;
 
   margin: 0 auto 20px;
 
@@ -625,7 +629,7 @@ a {
 
   color: var(--sage-deep);
 
-  font-size: 2rem;
+  font-size: 2.15rem;
 }
 
 .intro-card p {
@@ -635,9 +639,9 @@ a {
 
   margin: 0 auto;
 
-  font-size: 1.08rem;
+  font-size: 1.18rem;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 }
 
 .intro-emphasis {
@@ -673,15 +677,15 @@ a {
 
   margin-bottom: 9px;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 0.82rem;
+  font-size: 0.95rem;
 
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .progress-track {
-  height: 9px;
+  height: 10px;
 
   background: var(--brown-pale);
 
@@ -700,8 +704,8 @@ a {
   background:
     linear-gradient(
       90deg,
-      var(--sage-dark),
-      var(--sage)
+      var(--sage-deep),
+      var(--sage-dark)
     );
 
   transition: width 0.45s ease;
@@ -720,7 +724,7 @@ a {
 
   background: var(--white);
 
-  border: 1px solid rgba(201, 173, 145, 0.45);
+  border: 1px solid rgba(201, 173, 145, 0.55);
 
   border-radius: var(--radius-large);
 
@@ -734,11 +738,11 @@ a {
 .question-number {
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: 3.8rem;
+  font-size: 4rem;
 
-  color: var(--sage-dark);
+  color: var(--sage-deep);
 
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 .question-label {
@@ -746,11 +750,11 @@ a {
 
   color: var(--sage-deep);
 
-  font-size: 0.8rem;
+  font-size: 0.88rem;
 
   font-weight: 800;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
 
   text-transform: uppercase;
 }
@@ -759,9 +763,9 @@ a {
   font-family: Georgia, "Times New Roman", serif;
 
   font-size: clamp(
-    1.45rem,
-    3vw,
-    2rem
+    1.7rem,
+    3.2vw,
+    2.25rem
   );
 
   font-weight: 500;
@@ -786,17 +790,21 @@ a {
 
   width: 100%;
 
-  padding: 16px 18px;
+  padding: 17px 19px;
 
   text-align: left;
 
   background: var(--cream);
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
   border: 2px solid transparent;
 
   border-radius: var(--radius-small);
+
+  font-size: 1.05rem;
+
+  line-height: 1.5;
 
   transition:
     border-color 0.2s ease,
@@ -825,10 +833,10 @@ a {
 .option-dot {
   flex: 0 0 auto;
 
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
 
-  margin-right: 12px;
+  margin-right: 13px;
 
   border-radius: 50%;
 
@@ -859,7 +867,7 @@ a {
 
   color: var(--brown-dark);
 
-  font-size: 1.08rem;
+  font-size: 1.12rem;
 
   font-style: italic;
 
@@ -899,8 +907,8 @@ a {
   display: grid;
   place-items: center;
 
-  width: 75px;
-  height: 75px;
+  width: 78px;
+  height: 78px;
 
   margin: 0 auto 22px;
 
@@ -908,7 +916,7 @@ a {
 
   background: var(--mint);
 
-  font-size: 2rem;
+  font-size: 2.1rem;
 }
 
 .reflection-result h2 {
@@ -919,9 +927,9 @@ a {
   font-family: Georgia, "Times New Roman", serif;
 
   font-size: clamp(
-    2rem,
-    4vw,
-    3rem
+    2.2rem,
+    4.2vw,
+    3.2rem
   );
 
   line-height: 1.25;
@@ -938,7 +946,9 @@ a {
 
   color: var(--brown-dark);
 
-  font-size: 1.12rem;
+  font-size: 1.18rem;
+
+  line-height: 1.75;
 }
 
 @keyframes resultAppear {
@@ -984,14 +994,14 @@ a {
   display: grid;
   place-items: center;
 
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 
   border-radius: 50%;
 
   background: var(--cream);
 
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .small-step-card span {
@@ -1001,11 +1011,11 @@ a {
 
   color: var(--sage-deep);
 
-  font-size: 0.74rem;
+  font-size: 0.8rem;
 
   font-weight: 800;
 
-  letter-spacing: 0.13em;
+  letter-spacing: 0.12em;
 }
 
 .small-step-card p {
@@ -1013,7 +1023,9 @@ a {
 
   font-weight: 600;
 
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+
+  line-height: 1.6;
 }
 
 
@@ -1059,8 +1071,8 @@ a {
   display: grid;
   place-items: center;
 
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
 
   margin: 0 auto 18px;
 
@@ -1068,7 +1080,7 @@ a {
 
   background: rgba(255, 253, 245, 0.7);
 
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 
 .inspiration-card blockquote {
@@ -1081,9 +1093,9 @@ a {
   font-family: Georgia, "Times New Roman", serif;
 
   font-size: clamp(
-    1.45rem,
+    1.6rem,
     3vw,
-    2.15rem
+    2.3rem
   );
 
   line-height: 1.45;
@@ -1094,7 +1106,7 @@ a {
 .inspiration-author {
   color: var(--brown);
 
-  font-size: 0.9rem;
+  font-size: 0.96rem;
 
   font-weight: 700;
 }
@@ -1102,15 +1114,17 @@ a {
 .inspiration-button {
   margin-top: 24px;
 
-  padding: 11px 20px;
+  padding: 12px 21px;
 
-  border: 1px solid rgba(74, 53, 38, 0.2);
+  border: 1px solid rgba(62, 43, 32, 0.22);
 
   border-radius: 999px;
 
   background: rgba(255, 253, 245, 0.7);
 
   color: var(--brown-dark);
+
+  font-size: 0.98rem;
 
   font-weight: 800;
 
@@ -1148,7 +1162,12 @@ a {
 
   text-align: center;
 
-  background: var(--sage);
+  background:
+    linear-gradient(
+      145deg,
+      var(--sage-dark),
+      var(--sage)
+    );
 
   border-radius: var(--radius-large);
 
@@ -1178,7 +1197,7 @@ a {
 
   z-index: 1;
 
-  font-size: 2.2rem;
+  font-size: 2.3rem;
 
   margin-bottom: 12px;
 }
@@ -1193,10 +1212,12 @@ a {
   margin: 5px auto 20px;
 
   font-size: clamp(
-    2rem,
-    4vw,
-    3rem
+    2.2rem,
+    4.2vw,
+    3.2rem
   );
+
+  color: var(--brown-dark);
 }
 
 .wellbeing-card > p {
@@ -1210,7 +1231,9 @@ a {
 
   color: var(--brown-dark);
 
-  font-size: 1rem;
+  font-size: 1.1rem;
+
+  line-height: 1.7;
 }
 
 .wellbeing-card .primary-button {
@@ -1230,9 +1253,9 @@ a {
 
   margin-top: 16px;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 
@@ -1267,8 +1290,8 @@ a {
   display: grid;
   place-items: center;
 
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
 
   margin: 0 auto 20px;
 
@@ -1278,14 +1301,14 @@ a {
 
   color: var(--sage-deep);
 
-  font-size: 2.5rem;
+  font-size: 2.6rem;
 }
 
 .share-card h2 {
   font-size: clamp(
-    2rem,
-    4vw,
-    3rem
+    2.2rem,
+    4.2vw,
+    3.2rem
   );
 
   margin-bottom: 17px;
@@ -1296,9 +1319,11 @@ a {
 
   margin: 0 auto;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 1.04rem;
+  font-size: 1.1rem;
+
+  line-height: 1.7;
 }
 
 .share-button {
@@ -1308,7 +1333,7 @@ a {
 .share-subtext {
   margin-top: 17px !important;
 
-  font-size: 1rem !important;
+  font-size: 1.02rem !important;
 
   font-style: italic;
 }
@@ -1331,7 +1356,7 @@ a {
 
   padding: 20px;
 
-  background: rgba(74, 53, 38, 0.35);
+  background: rgba(62, 43, 32, 0.42);
 
   backdrop-filter: blur(5px);
 }
@@ -1349,7 +1374,7 @@ a {
 
   border-radius: var(--radius-large);
 
-  box-shadow: 0 25px 70px rgba(74, 53, 38, 0.2);
+  box-shadow: 0 25px 70px rgba(62, 43, 32, 0.25);
 
   animation: modalAppear 0.3s ease both;
 }
@@ -1360,8 +1385,8 @@ a {
   top: 14px;
   right: 16px;
 
-  width: 35px;
-  height: 35px;
+  width: 37px;
+  height: 37px;
 
   border: none;
 
@@ -1371,7 +1396,7 @@ a {
 
   color: var(--brown-dark);
 
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .success-logo {
@@ -1382,8 +1407,8 @@ a {
 
   gap: 2px;
 
-  width: 85px;
-  height: 85px;
+  width: 88px;
+  height: 88px;
 
   margin: 0 auto 20px;
 
@@ -1393,11 +1418,11 @@ a {
 
   color: var(--sage-deep);
 
-  box-shadow: 0 8px 25px rgba(74, 53, 38, 0.08);
+  box-shadow: 0 8px 25px rgba(62, 43, 32, 0.08);
 }
 
 .success-leaf {
-  font-size: 1.55rem;
+  font-size: 1.6rem;
 
   transform: rotate(-10deg);
 }
@@ -1405,13 +1430,13 @@ a {
 .success-heart {
   margin-left: -6px;
 
-  font-size: 2rem;
+  font-size: 2.1rem;
 }
 
 .share-modal-content h3 {
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: 1.8rem;
+  font-size: 1.95rem;
 
   font-weight: 500;
 
@@ -1422,6 +1447,8 @@ a {
   margin-top: 8px;
 
   color: var(--brown);
+
+  font-size: 1.05rem;
 }
 
 .share-modal-content .secondary-button {
@@ -1496,7 +1523,7 @@ a {
 .compass-icon {
   position: relative;
 
-  font-size: 2.5rem;
+  font-size: 2.6rem;
 
   margin-bottom: 12px;
 }
@@ -1509,9 +1536,9 @@ a {
   margin: 5px auto 20px;
 
   font-size: clamp(
-    2rem,
-    4vw,
-    3rem
+    2.2rem,
+    4.2vw,
+    3.2rem
   );
 }
 
@@ -1523,6 +1550,10 @@ a {
   margin: 12px auto;
 
   color: var(--brown-dark);
+
+  font-size: 1.1rem;
+
+  line-height: 1.7;
 }
 
 .true-north-card .primary-button {
@@ -1563,9 +1594,9 @@ a {
   text-align: center;
 
   font-size: clamp(
-    2rem,
-    4vw,
-    3.2rem
+    2.2rem,
+    4.5vw,
+    3.4rem
   );
 }
 
@@ -1576,7 +1607,7 @@ a {
 
   border-radius: var(--radius-large);
 
-  border: 1px solid rgba(201, 173, 145, 0.35);
+  border: 1px solid rgba(201, 173, 145, 0.4);
 
   box-shadow: var(--shadow-soft);
 }
@@ -1584,9 +1615,11 @@ a {
 .about-letter p {
   margin-bottom: 20px;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 1.03rem;
+  font-size: 1.1rem;
+
+  line-height: 1.75;
 }
 
 .about-letter .aha-moment {
@@ -1602,7 +1635,7 @@ a {
 
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 
   font-style: italic;
 }
@@ -1620,7 +1653,7 @@ a {
 
   font-weight: 700;
 
-  font-size: 1.08rem;
+  font-size: 1.12rem;
 }
 
 .about-signature {
@@ -1641,12 +1674,14 @@ a {
   color: var(--brown-dark);
 
   letter-spacing: 0.04em;
+
+  font-size: 1rem;
 }
 
 .about-signature span {
   color: var(--sage-deep);
 
-  font-size: 0.88rem;
+  font-size: 0.94rem;
 
   font-style: italic;
 }
@@ -1669,7 +1704,7 @@ a {
 
   background: var(--cream-dark);
 
-  border: 1px solid rgba(201, 173, 145, 0.4);
+  border: 1px solid rgba(201, 173, 145, 0.45);
 
   border-radius: var(--radius-medium);
 
@@ -1683,6 +1718,8 @@ a {
 
   color: var(--brown-dark);
 
+  font-size: 1.02rem;
+
   font-weight: 800;
 }
 
@@ -1693,9 +1730,11 @@ a {
 .disclaimer-content p {
   margin-top: 13px;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 0.9rem;
+  font-size: 0.98rem;
+
+  line-height: 1.7;
 }
 
 .disclaimer-emphasis {
@@ -1726,17 +1765,17 @@ a {
 
   border-radius: var(--radius-medium);
 
-  border: 1px solid rgba(201, 173, 145, 0.3);
+  border: 1px solid rgba(201, 173, 145, 0.35);
 }
 
 .legal-card p {
   margin-top: 13px;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 0.96rem;
+  font-size: 1rem;
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 
@@ -1774,13 +1813,13 @@ a {
 .footer-logo {
   margin-bottom: 15px;
 
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 
   color: var(--sage);
 }
 
 .footer-brand strong {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 
   letter-spacing: 0.12em;
 }
@@ -1793,6 +1832,8 @@ a {
   font-family: Georgia, "Times New Roman", serif;
 
   font-style: italic;
+
+  font-size: 1rem;
 }
 
 .footer-brand small {
@@ -1800,7 +1841,7 @@ a {
 
   color: var(--brown-light);
 
-  font-size: 0.72rem;
+  font-size: 0.78rem;
 }
 
 .footer-links {
@@ -1818,7 +1859,7 @@ a {
 .footer-links a {
   color: var(--cream);
 
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 
   transition: color 0.2s ease;
 }
@@ -1840,7 +1881,7 @@ a {
 
   color: var(--brown-light);
 
-  font-size: 0.72rem;
+  font-size: 0.78rem;
 }
 
 
@@ -1890,7 +1931,7 @@ main {
 }
 
 .site-header {
-  background-color: rgba(255, 253, 245, 0.94);
+  background-color: rgba(255, 253, 245, 0.96);
 }
 
 .site-footer {
@@ -1903,6 +1944,10 @@ main {
    ========================================================= */
 
 @media (max-width: 760px) {
+
+  body {
+    font-size: 16px;
+  }
 
   .section-container {
     width: min(
@@ -1921,11 +1966,11 @@ main {
   }
 
   .brand-text strong {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 
   .brand-text small {
-    font-size: 0.61rem;
+    font-size: 0.65rem;
   }
 
   .menu-toggle {
@@ -1963,9 +2008,11 @@ main {
   }
 
   .nav-links a {
-    padding: 13px 15px;
+    padding: 14px 15px;
 
     border-radius: 10px;
+
+    font-size: 1rem;
   }
 
   .nav-links a:hover {
@@ -1984,14 +2031,18 @@ main {
 
   .hero h1 {
     font-size: clamp(
-      2.5rem,
+      2.65rem,
       12vw,
-      4rem
+      4.2rem
     );
   }
 
+  .hero-subtitle {
+    font-size: 1.08rem;
+  }
+
   .hero-promise {
-    font-size: 0.73rem;
+    font-size: 0.78rem;
   }
 
   .hero-decoration {
@@ -2007,9 +2058,25 @@ main {
     padding: 35px 23px;
   }
 
+  .intro-card p {
+    font-size: 1.08rem;
+  }
+
   .reflection {
     padding-top: 65px;
     padding-bottom: 85px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.7rem
+    );
+  }
+
+  .section-heading p {
+    font-size: 1.05rem;
   }
 
   .question-card {
@@ -2021,15 +2088,17 @@ main {
   .question-number {
     margin-bottom: 10px;
 
-    font-size: 2.7rem;
+    font-size: 3rem;
   }
 
   .question-content h3 {
-    font-size: 1.35rem;
+    font-size: 1.55rem;
   }
 
   .answer-option {
-    padding: 14px;
+    padding: 15px;
+
+    font-size: 1rem;
   }
 
   .small-step-card {
@@ -2038,8 +2107,16 @@ main {
     flex-direction: column;
   }
 
+  .small-step-card p {
+    font-size: 1rem;
+  }
+
   .inspiration-card {
     padding: 40px 22px;
+  }
+
+  .inspiration-card blockquote {
+    font-size: 1.55rem;
   }
 
   .wellbeing {
@@ -2051,6 +2128,10 @@ main {
     padding: 50px 22px;
   }
 
+  .wellbeing-card > p {
+    font-size: 1.03rem;
+  }
+
   .share-section {
     padding-bottom: 75px;
   }
@@ -2059,12 +2140,20 @@ main {
     padding: 50px 22px;
   }
 
+  .share-card > p {
+    font-size: 1.03rem;
+  }
+
   .true-north {
     padding-bottom: 80px;
   }
 
   .true-north-card {
     padding: 55px 22px;
+  }
+
+  .true-north-card > p {
+    font-size: 1.03rem;
   }
 
   .about {
@@ -2076,8 +2165,16 @@ main {
     padding: 30px 22px;
   }
 
+  .about-letter p {
+    font-size: 1.03rem;
+  }
+
   .legal-card {
     padding: 27px 20px;
+  }
+
+  .legal-card p {
+    font-size: 0.95rem;
   }
 
   .footer-bottom {
