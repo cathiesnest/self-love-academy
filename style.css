@@ -50,6 +50,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--cream);
 }
 
 body {
@@ -567,6 +568,8 @@ a {
 .intro {
   padding-top: 105px;
   padding-bottom: 105px;
+
+  background: var(--cream);
 }
 
 .intro-card {
@@ -653,6 +656,8 @@ a {
 .reflection {
   padding-top: 85px;
   padding-bottom: 120px;
+
+  background: var(--cream);
 }
 
 .progress-wrapper {
@@ -922,6 +927,8 @@ a {
   line-height: 1.25;
 
   font-weight: 500;
+
+  color: var(--brown-dark);
 }
 
 #personalReflection {
@@ -1126,6 +1133,8 @@ a {
 .wellbeing {
   padding-top: 110px;
   padding-bottom: 110px;
+
+  background: var(--cream);
 }
 
 .wellbeing-card {
@@ -1234,6 +1243,8 @@ a {
 .share-section {
   padding-top: 30px;
   padding-bottom: 110px;
+
+  background: var(--cream);
 }
 
 .share-card {
@@ -1437,6 +1448,8 @@ a {
 .true-north {
   padding-top: 15px;
   padding-bottom: 115px;
+
+  background: var(--cream);
 }
 
 .true-north-card {
@@ -1526,6 +1539,8 @@ a {
 .about {
   padding-top: 85px;
   padding-bottom: 115px;
+
+  background: var(--cream);
 }
 
 .about-content {
@@ -1643,6 +1658,8 @@ a {
 
 .disclaimer {
   padding-bottom: 55px;
+
+  background: var(--cream);
 }
 
 .disclaimer details {
@@ -1694,6 +1711,8 @@ a {
 
 .legal {
   padding-bottom: 80px;
+
+  background: var(--cream);
 }
 
 .legal-card {
@@ -1822,6 +1841,60 @@ a {
   color: var(--brown-light);
 
   font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   THEME RESTORATION
+   Keeps the existing design and functionality intact.
+   ========================================================= */
+
+html,
+body {
+  background-color: var(--cream);
+}
+
+main {
+  background-color: var(--cream);
+}
+
+.intro,
+.reflection,
+.wellbeing,
+.share-section,
+.true-north,
+.about,
+.disclaimer,
+.legal {
+  background-color: var(--cream);
+}
+
+.intro-card,
+.small-step-card,
+.share-card {
+  background-color: var(--mint);
+}
+
+.inspiration-card {
+  background-color: var(--yellow);
+}
+
+.question-card,
+.about-letter {
+  background-color: var(--white);
+}
+
+.disclaimer details,
+.legal-card {
+  background-color: var(--cream-dark);
+}
+
+.site-header {
+  background-color: rgba(255, 253, 245, 0.94);
+}
+
+.site-footer {
+  background-color: var(--brown-dark);
 }
 
 
