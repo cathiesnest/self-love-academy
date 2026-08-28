@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    SELF LOVE ACADEMY
    Powered by CathiesNest Digital
@@ -232,14 +231,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalDone =
     document.getElementById("modalDone");
 
-  /*
+
+  /* =======================================================
      WORKPLACE WELLBEING — DO NOT CHANGE
-  */
+     ======================================================= */
+
   const wellbeingButton =
     document.getElementById("wellbeingButton");
 
   const tabingGuhitButton =
     document.getElementById("tabingGuhitButton");
+
+
+  /* =======================================================
+     MOBILE NAVIGATION
+     ======================================================= */
 
   const menuToggle =
     document.getElementById("menuToggle");
@@ -247,10 +253,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks =
     document.getElementById("navLinks");
 
-  /*
+
+  /* =======================================================
      THEME BUTTONS
-     Supports the actual .theme-button class.
-  */
+     ======================================================= */
+
   const themeOptions =
     document.querySelectorAll(".theme-button");
 
@@ -276,7 +283,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =======================================================
      THEME SWITCHER
-     Sage Green / Mocha
      ======================================================= */
 
   function applyTheme(theme) {
@@ -289,10 +295,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.dataset.theme =
       selectedTheme;
 
-    /*
-       Make sure Sage Green is explicitly active
-       when the page loads.
-    */
     document.body.dataset.theme =
       selectedTheme;
 
@@ -435,12 +437,22 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+
+    /* =====================================================
+       QUESTION COUNTER
+       ===================================================== */
+
     if (questionCounter) {
 
       questionCounter.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
     }
+
+
+    /* =====================================================
+       PROGRESS PERCENT
+       ===================================================== */
 
     if (progressPercent) {
 
@@ -456,6 +468,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       PROGRESS BAR
+       ===================================================== */
+
     if (progressBar) {
 
       progressBar.style.width =
@@ -464,6 +481,11 @@ document.addEventListener("DOMContentLoaded", function () {
           100}%`;
 
     }
+
+
+    /* =====================================================
+       QUESTION TEXT
+       ===================================================== */
 
     if (questionText) {
 
@@ -502,12 +524,13 @@ document.addEventListener("DOMContentLoaded", function () {
             "false"
           );
 
-          /*
-             Important:
-             Explicitly make each answer interactive.
-          */
           button.style.cursor =
             "pointer";
+
+
+          /* -----------------------------------------------
+             OPTION DOT
+             ----------------------------------------------- */
 
           const dot =
             document.createElement("span");
@@ -515,25 +538,37 @@ document.addEventListener("DOMContentLoaded", function () {
           dot.className =
             "option-dot";
 
+
+          /* -----------------------------------------------
+             OPTION TEXT
+             ----------------------------------------------- */
+
           const text =
             document.createElement("span");
 
           text.textContent =
             optionText;
 
+
+          /* -----------------------------------------------
+             BUILD BUTTON
+             ----------------------------------------------- */
+
           button.appendChild(dot);
 
           button.appendChild(text);
 
-          /*
-             Use click listener directly on
-             each newly-created answer button.
-          */
+
+          /* -----------------------------------------------
+             CLICK EVENT
+             ----------------------------------------------- */
+
           button.addEventListener(
             "click",
             function (event) {
 
               event.preventDefault();
+
               event.stopPropagation();
 
               selectAnswer(
@@ -543,6 +578,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
           );
+
 
           answerOptions.appendChild(
             button
@@ -555,7 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       RESTORE SELECTED ANSWER IF ONE EXISTS
+       RESTORE PREVIOUS ANSWER
        ===================================================== */
 
     const savedAnswer =
@@ -643,9 +679,19 @@ document.addEventListener("DOMContentLoaded", function () {
     selectedButton
   ) {
 
-    if (!answerOptions) {
+    if (
+      !answerOptions ||
+      !selectedButton
+    ) {
+
       return;
+
     }
+
+
+    /* =====================================================
+       CLEAR OTHER SELECTIONS
+       ===================================================== */
 
     const buttons =
       answerOptions.querySelectorAll(
@@ -667,6 +713,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
+
+    /* =====================================================
+       SELECT CURRENT ANSWER
+       ===================================================== */
+
     selectedButton.classList.add(
       "selected"
     );
@@ -676,8 +727,18 @@ document.addEventListener("DOMContentLoaded", function () {
       "true"
     );
 
+
+    /* =====================================================
+       SAVE ANSWER
+       ===================================================== */
+
     answers[currentQuestion] =
       answerIndex;
+
+
+    /* =====================================================
+       SHOW MINI REFLECTION
+       ===================================================== */
 
     if (tinyReflection) {
 
@@ -691,12 +752,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       ENABLE NEXT BUTTON
+       ===================================================== */
+
     if (nextQuestion) {
 
       nextQuestion.disabled =
         false;
 
     }
+
+
+    /* =====================================================
+       GOOGLE ANALYTICS
+       ===================================================== */
 
     trackEvent(
       `question_${currentQuestion + 1}_answered`,
@@ -724,6 +795,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         event.preventDefault();
 
+
+        /* -----------------------------------------------
+           Safety check
+           ----------------------------------------------- */
+
         if (
           answers[currentQuestion] ===
           undefined
@@ -733,6 +809,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
+        /* -----------------------------------------------
+           Go to next question
+           ----------------------------------------------- */
+
         if (
           currentQuestion <
           questions.length - 1
@@ -741,6 +822,7 @@ document.addEventListener("DOMContentLoaded", function () {
           currentQuestion++;
 
           loadQuestion();
+
 
           if (questionCard) {
 
@@ -779,6 +861,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     generateInspiration();
 
+
     if (reflectionResult) {
 
       reflectionResult.hidden =
@@ -804,6 +887,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+
     const selectedAnswers =
       answers.map(
         function (answer, index) {
@@ -822,8 +906,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       );
 
+
     let message =
       "Your answers show that you are willing to pause and look at yourself with honesty. ";
+
 
     const boundary =
       selectedAnswers[0] || "";
@@ -840,6 +926,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextChapter =
       selectedAnswers[4] || "";
 
+
+    /* =====================================================
+       BOUNDARIES
+       ===================================================== */
+
     if (
       boundary.includes("disappointed") ||
       boundary.includes("selfish") ||
@@ -852,6 +943,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       SELF TALK
+       ===================================================== */
+
     if (
       selfTalk.includes("harder on myself") ||
       selfTalk.includes("mistake")
@@ -861,6 +957,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "You also recognize that the way you speak to yourself deserves kindness and attention. ";
 
     }
+
+
+    /* =====================================================
+       REST
+       ===================================================== */
 
     if (
       rest.includes("guilty") ||
@@ -873,6 +974,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       COMPARISON
+       ===================================================== */
+
     if (
       comparison.includes("timeline") ||
       comparison.includes("far I've come")
@@ -882,6 +988,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "There is also a reminder here that your journey has its own timing. ";
 
     }
+
+
+    /* =====================================================
+       NEXT CHAPTER
+       ===================================================== */
 
     if (
       nextChapter.includes("myself") ||
@@ -894,8 +1005,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       CLOSING
+       ===================================================== */
+
     message +=
       "You don't need to change everything at once. Meaningful growth can begin with one honest realization and one small step.";
+
 
     personalReflection.textContent =
       message;
@@ -913,8 +1030,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+
     const selectedAnswer =
       answers[4];
+
 
     const steps = [
 
@@ -930,10 +1049,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ];
 
+
     const stepIndex =
       typeof selectedAnswer === "number"
         ? selectedAnswer
         : 0;
+
 
     smallStep.textContent =
       steps[stepIndex];
@@ -951,7 +1072,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+
     let randomIndex;
+
 
     do {
 
@@ -966,11 +1089,14 @@ document.addEventListener("DOMContentLoaded", function () {
       lastInspirationIndex
     );
 
+
     lastInspirationIndex =
       randomIndex;
 
+
     inspirationText.textContent =
       `“${inspirationMessages[randomIndex]}”`;
+
 
     if (inspirationAuthor) {
 
@@ -978,6 +1104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "— CathiesNest Digital";
 
     }
+
 
     trackEvent(
       "inspiration_generated"
@@ -1032,7 +1159,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =======================================================
-     TABING GUHIT
+     TABING GUHIT / YOUR NEXT CHAPTER
      ======================================================= */
 
   if (tabingGuhitButton) {
@@ -1069,6 +1196,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let copiedSuccessfully =
       false;
 
+
+    /* =====================================================
+       MODERN CLIPBOARD API
+       ===================================================== */
+
     try {
 
       if (
@@ -1084,6 +1216,10 @@ document.addEventListener("DOMContentLoaded", function () {
           true;
 
       } else {
+
+        /* =================================================
+           FALLBACK COPY METHOD
+           ================================================= */
 
         const fallbackInput =
           document.createElement("textarea");
@@ -1105,6 +1241,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fallbackInput.style.top =
           "0";
 
+        fallbackInput.style.opacity =
+          "0";
+
         document.body.appendChild(
           fallbackInput
         );
@@ -1112,6 +1251,11 @@ document.addEventListener("DOMContentLoaded", function () {
         fallbackInput.focus();
 
         fallbackInput.select();
+
+        fallbackInput.setSelectionRange(
+          0,
+          fallbackInput.value.length
+        );
 
         copiedSuccessfully =
           document.execCommand("copy");
@@ -1123,18 +1267,23 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (error) {
 
       console.error(
-        "Unable to copy link:",
+        "Unable to copy Self Love Academy link:",
         error
       );
 
     }
 
 
+    /* =====================================================
+       COPY SUCCESS
+       ===================================================== */
+
     if (copiedSuccessfully) {
 
       trackEvent(
         "share_link_clicked"
       );
+
 
       if (shareModal) {
 
@@ -1150,7 +1299,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
 
       alert(
-        "The link could not be copied automatically. Please copy the page address from your browser."
+        "The link could not be copied automatically. Please copy the Self Love Academy page address from your browser."
       );
 
     }
@@ -1214,6 +1363,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  /* =======================================================
+     CLOSE MODAL BY CLICKING OUTSIDE
+     ======================================================= */
+
   if (shareModal) {
 
     shareModal.addEventListener(
@@ -1272,10 +1425,12 @@ document.addEventListener("DOMContentLoaded", function () {
           "open"
         );
 
+
         const isOpen =
           navLinks.classList.contains(
             "open"
           );
+
 
         menuToggle.setAttribute(
           "aria-expanded",
@@ -1284,6 +1439,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
     );
+
 
     navLinks
       .querySelectorAll("a")
@@ -1313,7 +1469,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =======================================================
-     INITIALIZE
+     INITIALIZE THE PAGE
      ======================================================= */
 
   loadSavedTheme();
@@ -1330,4 +1486,3 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
 });
-```
