@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Self Love Academy — a gentle space to pause, reflect, and grow. No sign-up. No judgment. Just a moment for you. Powered by CathiesNest Digital."
+  >
+
+  <meta
+    name="theme-color"
+    content="#A8BFA3"
+  >
+
+  <title>Self Love Academy | Powered by CathiesNest Digital</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <!-- =========================================
+       NAVIGATION
+       ========================================= -->
+
+  <header class="site-header">
+
+    <nav class="navbar">
+
+      <a
+        href="#top"
+        class="brand"
+        aria-label="Self Love Academy home"
+      >
+        <span class="brand-icon" aria-hidden="true">🌿</span>
+
+        <span class="brand-text">
+          <strong>SELF LOVE ACADEMY</strong>
+          <small>Powered by CathiesNest Digital</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+
+        <a href="#reflection">Reflection</a>
+
+        <a href="#wellbeing">Wellbeing</a>
+
+        <a href="#about">About</a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <main id="top">
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="hero">
+
+      <div class="hero-decoration hero-leaf-left" aria-hidden="true">
+        ❋
+      </div>
+
+      <div class="hero-decoration hero-leaf-right" aria-hidden="true">
+        ✦
+      </div>
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          🌿 SELF LOVE ACADEMY
+        </div>
+
+        <h1>
+          Don't Forget Who You Are,
+          <span>Even When Life Feels Heavy.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          A gentle space to pause, reflect, and come back to yourself.
+        </p>
+
+        <div class="hero-promise">
+
+          <span>No Sign-Up</span>
+
+          <span>•</span>
+
+          <span>No Judgment</span>
+
+          <span>•</span>
+
+          <span>Just a Moment for You</span>
+
+        </div>
+
+        <a
+          href="#reflection"
+          class="primary-button"
+        >
+          🌿 Start Your Reflection
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INTRODUCTION
+         ========================================= -->
+
+    <section class="intro section-container">
+
+      <div class="section-heading">
+
+        <span class="section-kicker">
+          A LITTLE PAUSE
+        </span>
+
+        <h2>
+          You don't have to have everything figured out.
+        </h2>
+
+        <p>
+          Sometimes growth begins with one honest question.
+        </p>
+
+      </div>
+
+      <div class="intro-card">
+
+        <div class="intro-icon">
+          ♡
+        </div>
+
+        <p>
+          Before you continue, take a breath.
+          There are no right or wrong answers here.
+          These five questions are simply an invitation
+          to pause and notice what's happening within you.
+        </p>
+
+        <p class="intro-emphasis">
+          You might even have an
+          <strong>“AHA... I never thought about it that way.”</strong>
+          moment.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         REFLECTION EXPERIENCE
+         ========================================= -->
+
+    <section
+      id="reflection"
+      class="reflection section-container"
+    >
+
+      <div class="section-heading">
+
+        <span class="section-kicker">
+          🌱 QUICK SELF-REFLECTION
+        </span>
+
+        <h2>
+          Five Questions.<br>
+          One Quiet Moment With Yourself.
+        </h2>
+
+        <p>
+          Take your time. Listen to yourself.
+        </p>
+
+      </div>
+
+
+      <!-- Progress -->
+
+      <div
+        class="progress-wrapper"
+        aria-label="Reflection progress"
+      >
+
+        <div class="progress-label">
+
+          <span id="questionCounter">
+            Question 1 of 5
+          </span>
+
+          <span id="progressPercent">
+            20%
+          </span>
+
+        </div>
+
+        <div class="progress-track">
+
+          <div
+            class="progress-bar"
+            id="progressBar"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Question Card -->
+
+      <div
+        class="question-card"
+        id="questionCard"
+      >
+
+        <div class="question-number">
+          01
+        </div>
+
+        <div class="question-content">
+
+          <p class="question-label">
+            A little question for you...
+          </p>
+
+          <h3 id="questionText">
+            When you say “yes” to something you don't
+            really have the energy for, what are you
+            afraid might happen if you said “no”?
+          </h3>
+
+          <div
+            class="answer-options"
+            id="answerOptions"
+          >
+
+            <button class="answer-option" data-answer="They might be disappointed.">
+              <span class="option-dot"></span>
+              They might be disappointed.
+            </button>
+
+            <button class="answer-option" data-answer="They might think I'm selfish.">
+              <span class="option-dot"></span>
+              They might think I'm selfish.
+            </button>
+
+            <button class="answer-option" data-answer="I don't want conflict.">
+              <span class="option-dot"></span>
+              I don't want conflict.
+            </button>
+
+            <button class="answer-option" data-answer="I'm afraid they'll stop needing me.">
+              <span class="option-dot"></span>
+              I'm afraid they'll stop needing me.
+            </button>
+
+            <button class="answer-option" data-answer="Honestly, I'm not sure.">
+              <span class="option-dot"></span>
+              Honestly, I'm not sure.
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Tiny reflection message -->
+
+      <div
+        class="tiny-reflection"
+        id="tinyReflection"
+        aria-live="polite"
+      ></div>
+
+
+      <!-- Next button -->
+
+      <div class="question-actions">
+
+        <button
+          class="secondary-button"
+          id="nextQuestion"
+          disabled
+        >
+          Next Question →
+        </button>
+
+      </div>
+
+
+      <!-- =========================================
+           FINAL REFLECTION RESULT
+           ========================================= -->
+
+      <div
+        class="reflection-result"
+        id="reflectionResult"
+        hidden
+      >
+
+        <div class="result-icon">
+          🌱
+        </div>
+
+        <span class="section-kicker">
+          YOUR REFLECTION
+        </span>
+
+        <h2>
+          You are allowed to grow without becoming
+          someone else.
+        </h2>
+
+        <p id="personalReflection">
+          Your reflection will appear here.
+        </p>
+
+
+        <div class="small-step-card">
+
+          <div class="small-step-icon">
+            🌱
+          </div>
+
+          <div>
+
+            <span>
+              YOUR SMALL STEP
+            </span>
+
+            <p id="smallStep">
+              Your small step will appear here.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================================
+             AI / INSPIRATION CARD
+             ========================================= -->
+
+        <div class="inspiration-card">
+
+          <div class="sunshine-icon">
+            ☀
+          </div>
+
+          <span class="section-kicker">
+            A LITTLE SOMETHING FOR YOU
+          </span>
+
+          <blockquote id="inspirationText">
+            “You don't have to see the whole staircase.
+            Just take the next step.”
+          </blockquote>
+
+          <p class="inspiration-author">
+            — CathiesNest Digital
+          </p>
+
+          <button
+            class="inspiration-button"
+            id="newInspiration"
+          >
+            ✨ Give Me Another
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WORKPLACE WELLBEING
+         ========================================= -->
+
+    <section
+      id="wellbeing"
+      class="wellbeing section-container"
+    >
+
+      <div class="wellbeing-card">
+
+        <div class="wellbeing-leaf">
+          🌿
+        </div>
+
+        <span class="section-kicker">
+          WORKPLACE WELLBEING
+        </span>
+
+        <h2>
+          How Are You Really Doing at Work?
+        </h2>
+
+        <p>
+          Sometimes we're so busy getting through the day
+          that we forget to check in with ourselves.
+        </p>
+
+        <p>
+          If you'd like to pause and reflect on your
+          workplace wellbeing, you can take this optional
+          wellbeing check-in through Alison.
+        </p>
+
+        <a
+          href="https://alison.com/psychometric-test/wellbeing?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="primary-button"
+          id="wellbeingButton"
+        >
+          🌿 Take the Workplace Wellbeing Check-In →
+        </a>
+
+        <small class="gentle-note">
+          For reflection and awareness — not a diagnosis.
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CARE & SHARE
+         ========================================= -->
+
+    <section class="share-section section-container">
+
+      <div class="share-card">
+
+        <div class="share-icon">
+          ♡
+        </div>
+
+        <span class="section-kicker">
+          CARE & SHARE
+        </span>
+
+        <h2>
+          Someone Might Need This Today.
+        </h2>
+
+        <p>
+          If this little moment of reflection helped you,
+          share Self Love Academy with someone you care about.
+        </p>
+
+        <button
+          class="primary-button share-button"
+          id="shareButton"
+        >
+          💚 Care & Share
+        </button>
+
+        <p class="share-subtext">
+          You never know when a simple reminder can reach
+          someone at exactly the right moment.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SHARE CONFIRMATION
+         ========================================= -->
+
+    <div
+      class="share-modal"
+      id="shareModal"
+      hidden
+      aria-live="polite"
+    >
+
+      <div class="share-modal-content">
+
+        <button
+          class="modal-close"
+          id="closeShareModal"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <div class="success-logo">
+
+          <span class="success-leaf">
+            🌿
+          </span>
+
+          <span class="success-heart">
+            ♡
+          </span>
+
+        </div>
+
+        <h3>
+          Link Copied Successfully! 🎉
+        </h3>
+
+        <p>
+          Share a little kindness today.
+        </p>
+
+        <button
+          class="secondary-button"
+          id="modalDone"
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TABING GUHIT BRIDGE
+         ========================================= -->
+
+    <section class="true-north section-container">
+
+      <div class="true-north-card">
+
+        <div class="compass-icon">
+          🧭
+        </div>
+
+        <span class="section-kicker">
+          YOUR NEXT CHAPTER
+        </span>
+
+        <h2>
+          Ready to Find Your True North?
+        </h2>
+
+        <p>
+          Knowing yourself is one part of the journey.
+          Knowing where you want to go next is another.
+        </p>
+
+        <p>
+          Explore Tabing Guhit's free Find Your Niche
+          experience and start discovering possibilities
+          for your next chapter.
+        </p>
+
+        <a
+          href="https://cathiesnest.github.io/tabing-guhit-3.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="primary-button"
+          id="tabingGuhitButton"
+        >
+          🧭 Find Your Niche
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ABOUT
+         ========================================= -->
+
+    <section
+      id="about"
+      class="about section-container"
+    >
+
+      <div class="about-content">
+
+        <span class="section-kicker">
+          🌿 WHY SELF LOVE ACADEMY EXISTS
+        </span>
+
+        <h2>
+          Sometimes you just need a quiet place
+          to hear yourself think.
+        </h2>
+
+        <div class="about-letter">
+
+          <p>
+            Life can get loud.
+          </p>
+
+          <p>
+            Work. Responsibilities. Expectations.
+            Other people's needs.
+          </p>
+
+          <p>
+            And sometimes, somewhere between taking
+            care of everything else, we forget to check
+            in with ourselves.
+          </p>
+
+          <p>
+            Self Love Academy was created to offer a
+            small, quiet space to pause.
+          </p>
+
+          <p>
+            To ask yourself questions you may not
+            normally ask.
+          </p>
+
+          <p>
+            To notice patterns.
+          </p>
+
+          <p>
+            To challenge the way you speak to yourself.
+          </p>
+
+          <p>
+            To discover small steps toward growth.
+          </p>
+
+          <p>
+            And maybe, once in a while, to have that little:
+          </p>
+
+          <p class="aha-moment">
+            “AHA... I never thought about it that way.”
+          </p>
+
+          <p>
+            moment.
+          </p>
+
+          <p>
+            We believe self-improvement doesn't have
+            to feel like fixing what's wrong with you.
+          </p>
+
+          <p class="about-highlight">
+            Sometimes it's simply discovering what's
+            already within you — and giving it room to grow.
+          </p>
+
+          <div class="about-signature">
+
+            <strong>
+              Self Love Academy
+            </strong>
+
+            <span>
+              Pause. Reflect. Grow.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GENTLE NOTE / DISCLAIMER
+         ========================================= -->
+
+    <section class="disclaimer section-container">
+
+      <details>
+
+        <summary>
+          Important: Please Read
+        </summary>
+
+        <div class="disclaimer-content">
+
+          <p>
+            Self Love Academy is a self-reflection and
+            personal-growth resource created by
+            CathiesNest Digital. It is not a medical or
+            mental-health service, and it is not operated
+            by licensed mental-health professionals.
+          </p>
+
+          <p>
+            The questions, reflections, AI-generated
+            messages, and other content on this website
+            are intended for general informational,
+            educational, inspirational, and
+            self-improvement purposes only.
+          </p>
+
+          <p>
+            They are not intended to diagnose, treat,
+            prevent, or replace professional medical or
+            mental-health care.
+          </p>
+
+          <p class="disclaimer-emphasis">
+            You don't have to face difficult moments alone.
+          </p>
+
+          <p>
+            If you are experiencing severe emotional
+            distress, thoughts of harming yourself, or
+            feel that you may be in immediate danger,
+            please seek help from a qualified
+            mental-health professional, a trusted person,
+            or your local emergency/crisis service.
+          </p>
+
+          <p>
+            <strong>Your wellbeing matters.</strong>
+          </p>
+
+        </div>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================================
+         LEGAL / PRIVACY / AFFILIATE
+         ========================================= -->
+
+    <section class="legal section-container">
+
+      <div class="legal-card">
+
+        <span class="section-kicker">
+          LEGAL, PRIVACY & AFFILIATE DISCLOSURE
+        </span>
+
+        <p>
+          Self Love Academy is powered by
+          <strong>CathiesNest Digital</strong> and is
+          an independent website.
+          <strong>Self Love Academy is not an Alison
+          Affiliate Partner.</strong>
+        </p>
+
+        <p>
+          Some links on this website may direct you to
+          Alison through an affiliate link belonging to
+          the site's owner, who is a registered Alison
+          Affiliate Partner. The site owner may earn a
+          commission from qualifying purchases or actions
+          at no additional cost to you.
+        </p>
+
+        <p>
+          This is a paid referral arrangement only and
+          does not represent an endorsement by Alison
+          or a partnership between Self Love Academy
+          and Alison.
+        </p>
+
+        <p>
+          Participation in any external course or
+          assessment does not guarantee employment,
+          income, career advancement, or any particular
+          outcome.
+        </p>
+
+        <p>
+          <strong>AI-generated content:</strong>
+          AI responses and messages are provided for
+          general informational, educational,
+          inspirational, and self-reflection purposes
+          only. They should not be relied upon as
+          professional medical, mental-health, legal,
+          financial, employment, or other professional
+          advice.
+        </p>
+
+        <p>
+          <strong>Privacy:</strong>
+          Self Love Academy is designed to work without
+          user registration or accounts. No financial
+          inputs are permanently stored by this app.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          🌿 ♡
+        </div>
+
+        <strong>
+          SELF LOVE ACADEMY
+        </strong>
+
+        <span>
+          Pause. Reflect. Grow.
+        </span>
+
+        <small>
+          Powered by CathiesNest Digital
+        </small>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#about">About</a>
+
+        <a href="#wellbeing">Wellbeing</a>
+
+        <a href="#reflection">Reflection</a>
+
+        <a href="#top">Back to Top ↑</a>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          Free • Simple • Device-friendly
+        </span>
+
+        <span>
+          © 2026 CathiesNest Digital
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+
+  <script src="app.js"></script>
+
+</body>
+</html>
