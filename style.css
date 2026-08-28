@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    SELF LOVE ACADEMY
    Powered by CathiesNest Digital
@@ -852,9 +853,9 @@ a {
 
   text-align: center;
 
-  color: var(--sage-deep);
+  color: var(--brown-dark);
 
-  font-size: 0.96rem;
+  font-size: 1.08rem;
 
   font-style: italic;
 
@@ -929,9 +930,9 @@ a {
 
   margin: 0 auto;
 
-  color: var(--brown);
+  color: var(--brown-dark);
 
-  font-size: 1.06rem;
+  font-size: 1.12rem;
 }
 
 @keyframes resultAppear {
@@ -1005,6 +1006,8 @@ a {
   color: var(--brown-dark);
 
   font-weight: 600;
+
+  font-size: 1.05rem;
 }
 
 
@@ -1221,7 +1224,7 @@ a {
 
   color: var(--brown);
 
-  font-size: 0.78rem;
+  font-size: 0.95rem;
 }
 
 
@@ -1295,7 +1298,7 @@ a {
 .share-subtext {
   margin-top: 17px !important;
 
-  font-size: 0.85rem !important;
+  font-size: 1rem !important;
 
   font-style: italic;
 }
@@ -1713,9 +1716,9 @@ a {
 
   color: var(--brown);
 
-  font-size: 0.82rem;
+  font-size: 0.96rem;
 
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 
@@ -2035,3 +2038,4 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+```
